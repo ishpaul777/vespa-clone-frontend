@@ -1,12 +1,12 @@
 const LOG_IN = "LOG_IN";
 const LOG_OUT = "LOG_OUT";
 
-const userReducer = (state = {}, action) => {
+const userReducer = (state = null, action) => {
   switch (action.type) {
     case LOG_IN:
       return action.payload;
     case LOG_OUT:
-      return {};
+      return null;
     default:
       return state;
   }

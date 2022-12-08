@@ -7,12 +7,13 @@ import Signin from "./pages/Signin";
 function App() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
-  console.log(user);
   return (
     <div className="App">
       <Signup />
-      { user !== {} ? <button onClick={() => dispatch(logout())}>Logout</button> : null }
       <Signin />
+      {
+        user ? <button onClick={() => dispatch(logout())}>Logout</button> : null
+      }
     </div>
   );
 }
