@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { useDispatch, useSelector } from "react-redux";
+import "./App.css";
+import Signup from "./pages/Signup";
+import { logout } from "./redux/users/user_reducer";
+import Signin from "./pages/Signin";
 
 function App() {
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
+  console.log(user);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Signup />
+      { user !== {} ? <button onClick={() => dispatch(logout())}>Logout</button> : null }
+      <Signin />
     </div>
   );
 }
