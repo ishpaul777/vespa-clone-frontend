@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <Signup />
-      { user !== {} ? <button onClick={() => dispatch(logout())}>Logout</button> : null }
+      { user !== {} ? <button className="btn btn-danger " onClick={() => dispatch(logout())}>Logout</button> : null }
       <Signin />
     </div>
   );
