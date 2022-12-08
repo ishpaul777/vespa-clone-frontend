@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
-import Signup from "./pages/Signup";
 import { logout } from "./redux/users/user_reducer";
-import Signin from "./pages/Signin";
+import SigninForm from "./pages/components/SigninForm";
+import SignupForm from "./pages/components/SignupForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -10,9 +10,9 @@ function App() {
   console.log(user);
   return (
     <div className="App">
-      <Signup />
+      <SignupForm />
       { user !== {} ? <button className="btn btn-danger " onClick={() => dispatch(logout())}>Logout</button> : null }
-      <Signin />
+      <SigninForm />
     </div>
   );
 }
