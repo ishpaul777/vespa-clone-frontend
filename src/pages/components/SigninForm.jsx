@@ -33,24 +33,28 @@ function SigninForm() {
 
 
 	return (
-		<div>
-			<form onSubmit={handleSubmit}>
-				<div>
-					<label htmlFor="email">Email</label>
+		<div className="Auth-container">
+			<form onSubmit={handleSubmit} className="Auth-form">
+			<div className="Auth-content">
+			<h3 className="Auth-title">Sign In</h3>
+				<div className="form-group mt-3 text-start">
+					<label htmlFor="email" >Email</label>
 					<input
 						type="email"
+						className="form-control mt-1"
 						name="email"
 						id="email"
-						placeholder="Email"
+						placeholder="Enter Email"
 						required
 						value={formData.email}
 						onChange={handleChange}
 					/>
 				</div>
-				<div>
+				<div className="form-group mt-3 text-start">
 					<label htmlFor="password">Password</label>
 					<input
 						type="password"
+						className="form-control mt-1"
 						name="password"
 						id="password"
 						placeholder="Password"
@@ -59,7 +63,10 @@ function SigninForm() {
 						onChange={handleChange}
 					/>
 				</div>
-				<button type="submit">Sign In</button>
+				</div>
+				<div className="form-group mt-3 ">
+				<button type="submit" className="btn btn-primary ">Submit</button>
+				</div>
 			</form>
 		</div>
 	)
