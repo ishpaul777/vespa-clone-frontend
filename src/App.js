@@ -1,19 +1,28 @@
-import { useDispatch, useSelector } from "react-redux";
-import "./App.css";
-import Signup from "./pages/Signup";
-import { logout } from "./redux/users/user_reducer";
-import Signin from "./pages/Signin";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useSelector } from "react-redux";
+import SigninForm from "./pages/components/SigninForm";
+import SignupForm from "./pages/components/SignupForm";
+import HomePage from "./pages/Homepage";
 
 function App() {
-  const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   return (
     <div className="App">
-      <Signup />
-      <Signin />
-      {
-        user ? <button onClick={() => dispatch(logout())}>Logout</button> : null
-      }
+      {/* define routes */}
+      <BrowserRouter>
+        <Routes>
+          {user ? (
+            <>
+              <Route path="/" element={<HomePage />} />
+            </>
+          ) : (
+            <>
+              <Route path="/" element={<SigninForm />} />
+              <Route path="/signup" element={<SignupForm />} />
+            </>
+          )}
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

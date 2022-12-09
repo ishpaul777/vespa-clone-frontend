@@ -1,7 +1,9 @@
 const LOG_IN = "LOG_IN";
 const LOG_OUT = "LOG_OUT";
 
-const userReducer = (state = null, action) => {
+const initialState = JSON.parse(localStorage.getItem("user")) || null;
+
+const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOG_IN:
       return action.payload;
@@ -31,7 +33,13 @@ export const login = (user) => {
     const token = response.headers.get("Authorization");
     const data = await response.json();
     if (data.status.code === 200) {
-      localStorage.setItem("token", token);
+      const localdata = {
+        name: data.data.name,
+        email: data.data.email,
+        id: data.data.id,
+        token: token,
+      };
+      localStorage.setItem("user", JSON.stringify(localdata));
       dispatch({
         type: LOG_IN,
         payload: data.data,
@@ -48,7 +56,7 @@ export const logout = () => {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": localStorage.getItem("token"),
+        Authorization: JSON.parse(localStorage.getItem("user")).token,
       },
     })
       .then((response) => response.json())
@@ -58,7 +66,7 @@ export const logout = () => {
       .catch((error) => {
         console.error("Error:", error);
       });
-    localStorage.removeItem("token");
+    localStorage.removeItem("user");
     dispatch({
       type: LOG_OUT,
     });

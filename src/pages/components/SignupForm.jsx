@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { login } from '../../redux/users/user_reducer'
+import { Link } from 'react-router-dom'
 
 function SignupForm() {
 
@@ -66,7 +67,7 @@ function SignupForm() {
 
 		const data = await response.json();
 
-		if (data.status.code === 200 ) {
+		if (data.status.code === 200) {
 			dispatch(login(user))
 		}
 		else {
@@ -76,49 +77,63 @@ function SignupForm() {
 	};
 
 	return (
-		<div>
-			<form onSubmit={handleSubmit}>
-				<div>
-					<label htmlFor="email">Name</label>
-					<input
-						type="name"
-						name="name"
-						id="name"
-						value={formData.name}
-						onChange={handleChange}
-					/>
+		<div className="Auth-container">
+			<form onSubmit={handleSubmit} className="Auth-form">
+				<div className="Auth-content">
+					<h3 className="Auth-title">Sign Up</h3>
+					<div className="form-group mt-3 text-start">
+						<label htmlFor="email">Name</label>
+						<input
+							type="name"
+							className="form-control mt-1"
+							name="name"
+							id="name"
+							value={formData.name}
+							onChange={handleChange}
+						/>
+					</div>
+					<div className="form-group mt-3 text-start">
+						<label htmlFor="email">Email</label>
+						<input
+							type="email"
+							className="form-control mt-1"
+							name="email"
+							id="email"
+							value={formData.email}
+							onChange={handleChange}
+						/>
+					</div>
+					<div className="form-group mt-3 text-start">
+						<label htmlFor="password">Password</label>
+						<input
+							type="password"
+							className="form-control mt-1"
+							name="password"
+							id="password"
+							value={formData.password}
+							onChange={handleChange}
+						/>
+					</div>
+					<div className="form-group mt-3 text-start">
+						<label htmlFor="password_confirmation">Confirm Password</label>
+						<input
+							type="password"
+							className="form-control mt-1"
+							name="password_confirmation"
+							id="password_confirmation"
+							value={formData.password_confirmation}
+							onChange={handleChange}
+						/>
+					</div>
 				</div>
-				<div>
-					<label htmlFor="email">Email</label>
-					<input
-						type="email"
-						name="email"
-						id="email"
-						value={formData.email}
-						onChange={handleChange}
-					/>
+				<div className="form-group mt-3 ">
 				</div>
-				<div>
-					<label htmlFor="password">Password</label>
-					<input
-						type="password"
-						name="password"
-						id="password"
-						value={formData.password}
-						onChange={handleChange}
-					/>
+				<div className="form-group mt-3 d-flex flex-column  align-items-center justify-content-center">
+					<button type="submit" className="btn btn-primary w-75 mb-2">Submit</button>
+					<p>
+						Already have an account? <Link to="/">Login</Link>
+					</p>
 				</div>
-				<div>
-					<label htmlFor="password_confirmation">Confirm Password</label>
-					<input
-						type="password"
-						name="password_confirmation"
-						id="password_confirmation"
-						value={formData.password_confirmation}
-						onChange={handleChange}
-					/>
-				</div>
-				<button type="submit">Sign Up</button>
 			</form>
 		</div>
 	)

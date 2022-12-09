@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { login } from '../../redux/users/user_reducer'
+import { Link } from 'react-router-dom'
 
 
 function SigninForm() {
@@ -17,13 +18,13 @@ function SigninForm() {
 
 	const handleSubmit = (event) => {
 		event.preventDefault()
-		if(vaidateData()) {
+		if (vaidateData()) {
 			dispatch(login(formData))
 		}
 	}
 
 	const vaidateData = () => {
-		if(formData.email === '' || formData.password === '') {
+		if (formData.email === '' || formData.password === '') {
 			console.log('Please fill all the fields')
 			return false
 		}
@@ -33,33 +34,43 @@ function SigninForm() {
 
 
 	return (
-		<div>
-			<form onSubmit={handleSubmit}>
-				<div>
-					<label htmlFor="email">Email</label>
-					<input
-						type="email"
-						name="email"
-						id="email"
-						placeholder="Email"
-						required
-						value={formData.email}
-						onChange={handleChange}
-					/>
+		<div className="Auth-container">
+			<form onSubmit={handleSubmit} className="Auth-form">
+				<div className="Auth-content">
+					<h3 className="Auth-title">Sign In</h3>
+					<div className="form-group mt-3 text-start">
+						<label htmlFor="email" >Email</label>
+						<input
+							type="email"
+							className="form-control mt-1"
+							name="email"
+							id="email"
+							placeholder="Enter Email"
+							required
+							value={formData.email}
+							onChange={handleChange}
+						/>
+					</div>
+					<div className="form-group mt-3 text-start">
+						<label htmlFor="password">Password</label>
+						<input
+							type="password"
+							className="form-control mt-1"
+							name="password"
+							id="password"
+							placeholder="Password"
+							required
+							value={formData.password}
+							onChange={handleChange}
+						/>
+					</div>
 				</div>
-				<div>
-					<label htmlFor="password">Password</label>
-					<input
-						type="password"
-						name="password"
-						id="password"
-						placeholder="Password"
-						required
-						value={formData.password}
-						onChange={handleChange}
-					/>
+				<div className="form-group mt-3 d-flex flex-column  align-items-center justify-content-center">
+					<button type="submit" className="btn btn-primary w-75 mb-2">Submit</button>
+					<p>
+						Don't have an account? <Link to="/signup">Sign Up</Link>
+					</p>
 				</div>
-				<button type="submit">Sign In</button>
 			</form>
 		</div>
 	)
