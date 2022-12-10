@@ -2,6 +2,8 @@
     margin:0;
     padding:0;
     text-decoration: none;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 .container{
     display:flex;
@@ -13,14 +15,17 @@ main{
 .sidebar{
     background: #fff;
     color: #000;
-    height: 100vh;
+    height: 120vh;
     width: 200px;
     transition: all 0.5s;
+    box-shadow: rgb(0 0 0 / 16%) 3px 50px 10px;
+
 }
 .top_section{
     display: flex;
-    align-items:center;
-    padding:20px 15px;
+    justify-content: space-between;
+    padding:30px 15px;
+    margin-left: 2vh;
 }
 .logo{
     font-size: 30px;
@@ -29,21 +34,25 @@ main{
     display: flex;
     font-size: 25px;
     margin-left: 50px;
+    text-decoration: underline;
 }
 .link{
     display: flex;
     color: #000;
-    padding: 10px 15px;
+    padding: 7px 20px;
     gap: 15px;
     transition: all 0.1s;
+    margin-left: 2vh;
+    margin-top: 3vh;
+
 }
 .link:hover{
-    background:rgb(238, 243, 247);
+    background:#e1fa9c;
     color: #000;
     transition: all 0.5s;
 }
 .active{
-    background: lightskyblue;
+    background: #97bf2a;
     color: #000;
 }
 .icon, .link_text{

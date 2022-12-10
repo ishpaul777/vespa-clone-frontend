@@ -5,7 +5,6 @@ import DeleteMotorcycle from './pages/DeleteMotorcycle';
 import MyReservations from './pages/MyReservations';
 import Reserve from './pages/Reserve';
 import Sidebar from './components/Sidebar';
-import './App.css'
 
 
 const App = () => {
