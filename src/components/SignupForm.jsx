@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { login } from '../../redux/users/user_reducer'
+import { login } from '../redux/users/user_reducer'
 import { Link } from 'react-router-dom'
 
 function SignupForm() {
@@ -11,6 +11,7 @@ function SignupForm() {
 		email: '',
 		password: '',
 		password_confirmation: '',
+		role: 'user',
 	})
 
 	const dispatch = useDispatch()
@@ -43,6 +44,9 @@ function SignupForm() {
 	}
 
 
+	const handleAdminChange = (event) => {
+		setFormData({ ...formData, role: event.target.checked ? 'admin' : 'user' })
+	}
 
 	const handleSubmit = (event) => {
 		event.preventDefault()
@@ -124,6 +128,23 @@ function SignupForm() {
 							value={formData.password_confirmation}
 							onChange={handleChange}
 						/>
+					</div>
+					<div className="form-group mt-3 text-start d-flex align-items-start">
+						<input
+							type="checkbox"
+							name="admin"
+							id="admin"
+							value={formData.admin}
+							onChange={handleAdminChange}
+							className="mt-1"
+						/>
+						<label
+							htmlFor="admin"
+							className="text-start ml-2 mt-0"
+						>
+							Do you want to be an admin? <br />
+							<i>(Becoming an admin will allow you to add and delete products)</i>
+						</label>
 					</div>
 				</div>
 				<div className="form-group mt-3 ">
