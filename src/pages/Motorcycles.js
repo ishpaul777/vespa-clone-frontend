@@ -1,11 +1,10 @@
-import ScooterAnimation from "./components/ScooterAnimation";
+import ScooterAnimation from "../components/ScooterAnimation";
 import { useDispatch } from "react-redux";
-import { redirect } from "react-router-dom";
 import { logout } from "../redux/users/user_reducer";
 import React from 'react'
 
-function Homepage() {
-	const dispatch = useDispatch();
+const Motorcycles = () => {
+    const dispatch = useDispatch();
 	return (
 		<div>
 			<ScooterAnimation />
@@ -15,6 +14,6 @@ function Homepage() {
 			}}>Logout</button>
 		</div>
 	)
-}
+};
 
-export default Homepage
+export default Motorcycles;

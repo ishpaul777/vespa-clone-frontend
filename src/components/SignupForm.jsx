@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { login } from '../../redux/users/user_reducer'
+import { login } from '../redux/users/user_reducer'
 import { Link } from 'react-router-dom'
 
 function SignupForm() {
