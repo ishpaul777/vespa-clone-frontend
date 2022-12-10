@@ -29,9 +29,7 @@ function AddProductForm() {
 		formData.append('product[color]', product.color)
 		formData.append('product[price]', product.price)
 		formData.append('product[description]', product.description)
-		// const user = JSON.parse(localStorage.getItem('user'))
-		// formData.append('product[id]', user.id)
-		// formData.append('product[image]', e.target.image.files[0])
+		formData.append('product[image]', e.target.image.files[0])
 		for (var key of formData.entries()) {
 			console.log(key[0] + ', ' + key[1]);
 		}

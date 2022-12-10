@@ -30,7 +30,6 @@ export function addProduct(product) {
   };
 }
 
-
 // todo: add config for upload images of products in rails
   //  plan:
 	// 1. Add ActiveStorage
@@ -48,4 +47,7 @@ export function addProduct(product) {
 				// end
 				// render json: @all_products, status: :ok
 			//  end
-
+		// create helper method for image in the product model
+			// def image_url
+			// 	Rails.application.routes.url_helpers.url_for(image)
+			// end
