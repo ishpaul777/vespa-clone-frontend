@@ -58,3 +58,7 @@ label {
   font-weight: 600;
   color: rgb(34, 34, 34);
 }
+
+.ml-2 {
+  margin-left: 0.5em;
+}
