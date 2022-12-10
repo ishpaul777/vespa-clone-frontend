@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import {
-    FaBars
+    FaBars,
+    FaFacebookF,
+    FaTwitter,
+    FaLinkedinIn
 }from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
 import '../styles/sideBar.css'
@@ -32,7 +35,7 @@ const Sidebar = ({children}) => {
         }
     ]
     return (
-        <div className="container">
+        <div className="sideBar-container">
            <div style={{width: isOpen ? "300px" : "70px"}} className="sidebar">
                <div className="top_section">
                    <h1 style={{display: isOpen ? "block" : "none"}} className="logo">Vespa</h1>
@@ -47,6 +50,12 @@ const Sidebar = ({children}) => {
                        </NavLink>
                    ))
                }
+               <div className="social-midia">
+               <FaTwitter/> 
+                <FaFacebookF/> 
+                <FaLinkedinIn/>
+               </div>          
+
            </div>
            <main>{children}</main>
         </div>

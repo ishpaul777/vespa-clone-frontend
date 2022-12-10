@@ -5,21 +5,22 @@
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-.container{
+.sideBar-container{
     display:flex;
 }
 main{
     width: 100%;
+    height: 150vh;
     padding: 20px;
+    box-shadow: rgb(0 0 0 / 16%) 3px 50px 10px;
+
 }
 .sidebar{
     background: #fff;
     color: #000;
-    height: 120vh;
+    height: 100vh;
     width: 200px;
     transition: all 0.5s;
-    box-shadow: rgb(0 0 0 / 16%) 3px 50px 10px;
-
 }
 .top_section{
     display: flex;
@@ -44,6 +45,7 @@ main{
     transition: all 0.1s;
     margin-left: 2vh;
     margin-top: 3vh;
+    text-decoration: none;
 
 }
 .link:hover{
@@ -54,7 +56,15 @@ main{
 .active{
     background: #97bf2a;
     color: #000;
+    text-decoration: none;
 }
 .icon, .link_text{
     font-size: 20px;
+}
+
+.social-midia {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15rem;
+    padding: 5rem;
 }
