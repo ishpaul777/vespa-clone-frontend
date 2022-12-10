@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { logout } from "../redux/users/user_reducer";
 import { FaBars, FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 import { BsFillArrowLeftSquareFill } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
@@ -8,6 +10,7 @@ import Vespalogo from "./vespaLogo";
 const Sidebar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+  const dispatch = useDispatch();
   const menuItem = [
     {
       path: "/",
@@ -70,6 +73,16 @@ const Sidebar = ({ children }) => {
             </NavLink>
           ))}
         </div>
+        <button
+          className="logout-btn btn btn-light"
+          style={{ display: isOpen ? "block" : "none", alignSelf: "flex-start" }}
+          onClick={() => {
+            dispatch(logout());
+            // redirect to login page
+          }}
+        >
+          Logout
+        </button>
         <div
           className="social-media"
           style={{ display: isOpen ? "flex" : "none" }}
@@ -80,7 +93,7 @@ const Sidebar = ({ children }) => {
         </div>
       </div>
       <main>{children}</main>
-    </div>
+    </div >
   );
 };
 
