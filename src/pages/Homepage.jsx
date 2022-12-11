@@ -8,7 +8,7 @@ function Homepage() {
 	const dispatch = useDispatch();
 	return (
 		<div>
-			{/* <ScooterAnimation /> */}
+			<ScooterAnimation />
 			<AddProductForm />
 			<button onClick={() =>{
 				dispatch(logout())
