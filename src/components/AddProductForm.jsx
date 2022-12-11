@@ -1,7 +1,8 @@
 
+import { async } from 'q'
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { addProduct } from '../../redux/products/products_reducer'
+import { addProduct } from '../redux/products/products_reducer'
 
 function AddProductForm() {
 	const dispatch = useDispatch()
@@ -37,32 +38,32 @@ function AddProductForm() {
 		submitToBackend(formData)
 	}
 
-	const submitToBackend = (formData) => {
+	const submitToBackend =  (formData) => {
 		dispatch(addProduct(formData))
 	}
 
 	return (
-		<div className="add-product-form">
-			<h1>Add Product</h1>
-			<form onSubmit={(e) => handleSubmit(e)}>
-				<div>
-					<label htmlFor="model">Model</label>
+		<div className="add-product-form w-100 d-flex flex-column align-items-center justify-content-center h-100 mt-5">
+			<h1>Add New Product</h1>
+			<form onSubmit={(e) => handleSubmit(e)} className="w-50 mt-3">
+				<div className="mb-3">
+					<label htmlFor="model" className="form-label">Model</label>
 					<input
 						className='form-control'
 						onChange={handleChange}
 						type="text"
 						name="model" id="model" />
 				</div>
-				<div>
-					<label htmlFor="color">Color</label>
+				<div className="mb-3">
+					<label htmlFor="color" className="form-label">Color</label>
 					<input
 						className='form-control'
 						onChange={handleChange}
 						type="text"
 						name="color" id="color" />
 				</div>
-				<div>
-					<label htmlFor="price">Price</label>
+				<div className="mb-3">
+					<label htmlFor="price" className="form-label">Price</label>
 					<input
 						className='form-control'
 						onChange={handleChange}
@@ -70,22 +71,22 @@ function AddProductForm() {
 						name="price" id="price" />
 				</div>
 				<div>
-					<label htmlFor="image">Image</label>
+					<label htmlFor="image" className="form-label">Image</label>
 					<input
 						className='form-control'
 						type="file"
 						multiple
 						name="image" id="image" />
 				</div>
-				<div>
-					<label htmlFor="description">Description</label>
+				<div className="mb-3">
+					<label htmlFor="description" className="form-label">Description</label>
 					<textarea
 						className='form-control'
 						onChange={handleChange}
 						name="description"
 						id="description" />
 				</div>
-				<button type="submit">Add Product</button>
+				<button type="submit" className='btn btn-primary'>Add Product</button>
 			</form>
 		</div>
 	)

@@ -37,6 +37,7 @@ export const login = (user) => {
         name: data.data.name,
         email: data.data.email,
         id: data.data.id,
+        role: data.data.role,
         token: token,
       };
       localStorage.setItem("user", JSON.stringify(localdata));
