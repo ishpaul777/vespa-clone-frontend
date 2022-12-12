@@ -4,7 +4,7 @@
   padding: 0;
   text-decoration: none;
 }
- 
+
  .carousel {
     overflow-x: auto;
     scroll-behavior: smooth;
@@ -24,4 +24,9 @@ button:not(:disabled), [type=button]:not(:disabled), [type=reset]:not(:disabled)
   border: none;
   background: white;
 }
-  
+
+.card-img-top {
+  width: 100vw;
+  height: 10vw;
+  object-fit: cover;
+}
