@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
-import Motorcycles from "./pages/Motorcycles";
+import AllProducts from "./pages/AllProducts";
 import AddProduct from "./pages/AddProduct";
 import MyReservations from "./pages/MyReservations";
 import Reserve from "./pages/Reserve";
@@ -17,7 +17,8 @@ function App() {
         {user ? (
           <Sidebar>
             <Routes>
-              <Route path="/" element={<Motorcycles />} />
+              <Route path="/" element={<AllProducts />} />
+              <Route path="/allProducts" element={<AllProducts />} />
               <Route path="/reserve" element={<Reserve />} />
               <Route path="/myReservations" element={<MyReservations />} />
               {user.role === 'admin' && <Route path="/addProduct" element={<AddProduct />} />}

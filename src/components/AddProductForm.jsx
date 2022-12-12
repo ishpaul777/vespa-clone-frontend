@@ -38,8 +38,14 @@ function AddProductForm() {
 		submitToBackend(formData)
 	}
 
-	const submitToBackend =  (formData) => {
+	const submitToBackend = (formData) => {
 		dispatch(addProduct(formData))
+		setProduct({
+			model: '',
+			color: '',
+			price: '',
+			description: ''
+		})
 	}
 
 	return (
@@ -100,3 +106,4 @@ export default AddProductForm
 // price
 // image
 // description
+

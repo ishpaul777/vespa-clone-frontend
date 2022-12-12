@@ -35,7 +35,6 @@ const Sidebar = ({ children }) => {
     },
   )
 
-  console.log(user);
 
   return (
     <div className="sideBar-container">
