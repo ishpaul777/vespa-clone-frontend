@@ -1,10 +1,10 @@
 
   
-
   .carousel {
     display: flex;
     overflow-x: auto;
     scroll-behavior: smooth;
+    max-width: 5vw;
   }
 
   .container .carousel::-webkit-scrollbar {
