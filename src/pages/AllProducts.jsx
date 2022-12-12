@@ -7,6 +7,7 @@ import "../styles/carrocel.css";
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getProducts } from "../redux/products/products_reducer";
+import { Link } from "react-router-dom";
 
 const AllProducts = () => {
   const data = useSelector((state) => state.products);
@@ -46,7 +47,9 @@ const AllProducts = () => {
                 <Card.Body>
                   <Card.Title>{name}</Card.Title>
                   <Card.Text>{description}</Card.Text>
-                  <Button variant="primary">See Details</Button>
+                  <Button variant="primary">
+                    <Link to={`/product/${id}`}>See Details</Link>
+                  </Button>
                 </Card.Body>
               </Card>
             </div>
@@ -67,7 +70,7 @@ const AllProducts = () => {
           />
         </button>
       </div>
-    </div>
+    </div >
   );
 };
 

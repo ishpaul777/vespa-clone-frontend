@@ -9,6 +9,16 @@ import Vespalogo from "./vespaLogo";
 
 const Sidebar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [matches, setMatches] = useState(
+    window.matchMedia("(max-width: 768px)").matches
+  )
+
+  React.useEffect(() => {
+    window
+      .matchMedia("(min-width: 768px)")
+      .addEventListener('change', e => setMatches(e.matches));
+  }, []);
+
   const toggle = () => setIsOpen(!isOpen);
   const dispatch = useDispatch();
   const menuItem = [
@@ -39,7 +49,10 @@ const Sidebar = ({ children }) => {
   return (
     <div className="sideBar-container">
       <div
-        style={{ width: isOpen ? "300px" : "75px", paddingLeft: isOpen || "0" }}
+        style={{
+          width: isOpen ? (matches ? "250px" : "300px") : (matches ? "40vw" : "75px"),
+          paddingLeft: isOpen || "0",
+        }}
         className="sidebar"
       >
         <div
@@ -48,13 +61,16 @@ const Sidebar = ({ children }) => {
         >
           {isOpen && <Vespalogo />}
           <div
-            style={{ marginLeft: isOpen ? "50px" : "0px" }}
+            style={{
+              marginLeft: isOpen ? "50px" : "0px",
+              padding: isOpen ? "0px" : "10px",
+            }}
             className="open-close-icons"
           >
             {isOpen ? (
               <BsFillArrowLeftSquareFill onClick={toggle} />
             ) : (
-              <FaBars onClick={toggle} />
+              <FaBars onClick={toggle} className="menu-bars" />
             )}
           </div>
         </div>

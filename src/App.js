@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import AllProducts from "./pages/AllProducts";
 import AddProduct from "./pages/AddProduct";
 import MyReservations from "./pages/MyReservations";
+import ProductDetails from "./pages/ProductDetails";
 import Reserve from "./pages/Reserve";
 import Sidebar from "./components/Sidebar";
 import SigninForm from "./components/SigninForm";
@@ -19,6 +20,7 @@ function App() {
             <Routes>
               <Route path="/" element={<AllProducts />} />
               <Route path="/allProducts" element={<AllProducts />} />
+              <Route path="/product/:id" element={<ProductDetails />} />
               <Route path="/reserve" element={<Reserve />} />
               <Route path="/myReservations" element={<MyReservations />} />
               {user.role === 'admin' && <Route path="/addProduct" element={<AddProduct />} />}
