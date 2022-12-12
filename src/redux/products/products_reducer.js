@@ -1,5 +1,6 @@
 const ADD_PRODUCT = "ADD_PRODUCT";
 const REMOVE_PRODUCT = "REMOVE_PRODUCT";
+const GET_PRODUCTS = "GET_PRODUCTS";
 
 const initialState = [];
 
@@ -9,6 +10,8 @@ export default function productsReducer(state = initialState, action) {
       return action.payload;
     case REMOVE_PRODUCT:
       return state.filter((product) => product.id !== action.payload.id);
+    case GET_PRODUCTS:
+      return action.payload;
     default:
       return state;
   }
@@ -29,6 +32,32 @@ export function addProduct(product) {
     dispatch({ type: ADD_PRODUCT, payload: data });
   };
 }
+
+export function removeProduct(id) {
+  return async (dispatch) => {
+    const response = await fetch(`http://localhost:3000/products/${id}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: JSON.parse(localStorage.getItem("user")).token,
+      },
+    });
+    const data = await response.json();
+    dispatch({ type: REMOVE_PRODUCT, payload: data });
+  };
+}
+
+export function getProducts() {
+  return async (dispatch) => {
+    const response = await fetch("http://localhost:3000/products", {
+      headers: {
+        Authorization: JSON.parse(localStorage.getItem("user")).token,
+      },
+    });
+    const data = await response.json();
+    dispatch({ type: GET_PRODUCTS, payload: data });
+  };
+}
+
 
 // todo: add config for upload images of products in rails
   //  plan:
