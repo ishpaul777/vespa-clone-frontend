@@ -38,7 +38,7 @@ function AddProductForm() {
 		submitToBackend(formData)
 	}
 
-	const submitToBackend =  (formData) => {
+	const submitToBackend = (formData) => {
 		dispatch(addProduct(formData))
 	}
 
@@ -100,3 +100,4 @@ export default AddProductForm
 // price
 // image
 // description
+
