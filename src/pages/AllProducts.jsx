@@ -8,15 +8,17 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getProducts } from "../redux/products/products_reducer";
 
-const Motorcycles = () => {
+const AllProducts = () => {
   const data = useSelector((state) => state.products);
   const carousel = useRef(null);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getProducts());
-  }, [dispatch]);
-  
+  }, []);
+
+  console.log(data);
+
   const handleLeftClick = (e) => {
     e.preventDefault();
     carousel.current.scrollLeft -= carousel.current.offsetWidth;
@@ -69,4 +71,4 @@ const Motorcycles = () => {
   );
 };
 
-export default Motorcycles;
+export default AllProducts;
