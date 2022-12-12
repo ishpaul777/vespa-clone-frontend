@@ -1,26 +1,27 @@
-
-  
-  .carousel {
-    display: flex;
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+ 
+ .carousel {
     overflow-x: auto;
     scroll-behavior: smooth;
-    max-width: 5vw;
+    max-width: fit-content;
   }
 
   .container .carousel::-webkit-scrollbar {
     display: none;
   }
   
-  .container .buttons {
-    width: 100%;
-    text-align: center;
-  }
-  .container .buttons button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-  }
-  .container .buttons button:first-child img {
-    transform: rotate(180deg);
-  }
+.arrows {
+  margin-top: 8rem;
+}
+
+button:not(:disabled), [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled) {
+  cursor: pointer;
+  border: none;
+  background: white;
+}
   
