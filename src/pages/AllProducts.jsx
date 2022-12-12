@@ -1,12 +1,11 @@
 //import ScooterAnimation from "../components/ScooterAnimation";
-import { useEffect, useRef } from "react";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
 import "../styles/carrocel.css";
-
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getProducts } from "../redux/products/products_reducer";
+import { useEffect, useRef } from "react";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 
 const AllProducts = () => {
@@ -33,9 +32,12 @@ const AllProducts = () => {
   if (!data || !data.length) return null;
 
   return (
-    <div className="container">
-      <div>
-        <h1>Our Products</h1>
+    <div className="container mt-5">
+      <div className="d-flex justify-content-center">
+        <h1>Last Products</h1>
+      </div>
+      <div className="d-flex justify-content-center">
+        <h6>Please select a Product</h6>
       </div>
       <div className="container d-flex carousel" ref={carousel}>
         {data.map((item) => {
@@ -47,9 +49,9 @@ const AllProducts = () => {
                 <Card.Body>
                   <Card.Title>{name}</Card.Title>
                   <Card.Text>{description}</Card.Text>
-                  <Button variant="primary">
-                    <Link to={`/product/${id}`}>See Details</Link>
-                  </Button>
+                  <Link to={`/products/${id}`} className="btn btn-primary">
+                    See Details
+                  </Link>
                 </Card.Body>
               </Card>
             </div>

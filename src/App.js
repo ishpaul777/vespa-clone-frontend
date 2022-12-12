@@ -20,7 +20,7 @@ function App() {
             <Routes>
               <Route path="/" element={<AllProducts />} />
               <Route path="/allProducts" element={<AllProducts />} />
-              <Route path="/product/:id" element={<ProductDetails />} />
+              <Route path="/products/:id" element={<ProductDetails />} />
               <Route path="/reserve" element={<Reserve />} />
               <Route path="/myReservations" element={<MyReservations />} />
               {user.role === 'admin' && <Route path="/addProduct" element={<AddProduct />} />}
