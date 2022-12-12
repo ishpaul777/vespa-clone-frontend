@@ -57,7 +57,7 @@ const AllProducts = () => {
                   <Card.Body>
                     <Card.Title>{name}</Card.Title>
                     <Card.Text>{description}</Card.Text>
-                    <Button variant="primary">See Details</Button>
+                    <Link to={`/products/${id}`} className="btn btn-primary">See Details</Link>
                   </Card.Body>
                 </Card>
               </div>
