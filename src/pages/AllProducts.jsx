@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 
 const AllProducts = () => {
   const data = useSelector((state) => state.products);
+  const user = useSelector((state) => state.user);
   const carousel = useRef(null);
   const dispatch = useDispatch();
 
@@ -59,9 +60,14 @@ const AllProducts = () => {
                     <Card.Title>{name}</Card.Title>
                     <Card.Text>{description}</Card.Text>
                     <Link to={`/products/${id}`} className="btn btn-primary">See Details</Link>
-                    <Button
-                      onClick={() => { dispatch(removeProduct(id)) }}
-                      className="btn btn-danger">Remove</Button>
+                    {
+                      user.role === 'admin' &&
+                      <Button
+                        onClick={() => { dispatch(removeProduct(id)) }}
+                        className="btn btn-danger">
+                        Remove
+                      </Button>
+                    }
                   </Card.Body>
                 </Card>
               </div>
