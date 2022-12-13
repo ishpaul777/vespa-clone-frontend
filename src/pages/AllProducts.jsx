@@ -1,5 +1,5 @@
 //import ScooterAnimation from "../components/ScooterAnimation";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import "../styles/carrocel.css";
@@ -8,11 +8,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { getProducts, removeProduct } from "../redux/products/products_reducer";
 import { FaChevronCircleRight, FaChevronCircleLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Slider from "react-slick";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const AllProducts = () => {
   const data = useSelector((state) => state.products);
   const user = useSelector((state) => state.user);
-  const carousel = useRef(null);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -22,68 +24,73 @@ const AllProducts = () => {
   }, [dispatch]);
 
 
-  const handleLeftClick = (e) => {
-    e.preventDefault();
-    carousel.current.scrollLeft -= carousel.current.offsetWidth;
-  };
-
-  const handleRightClick = (e) => {
-    e.preventDefault();
-    carousel.current.scrollLeft += carousel.current.offsetWidth;
+  var settings = {
+    arrows: true,
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    className: 'slider_arrows',
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
 
   if (!data || !data.length) return null;
 
 
   return (
-    <div className="container mt-5">
-      <div className="d-flex justify-content-center">
-        <h1>Last Products</h1>
-      </div>
-      <div className="d-flex justify-content-center">
-        <h6>Please select a Product</h6>
-      </div>
-      <div className="d-flex mt-5">
-        <div className="arrows">
-          <button onClick={handleRightClick}>
-            <FaChevronCircleLeft size={40} fill='#97bf0f' />
-          </button>
-        </div>
-        <div className="d-flex carousel" ref={carousel}>
-          {data.map((item) => {
-            const { id, name, image_url, description } = item;
-            return (
-              <div className="container d-flex justify-content-center" key={id}>
-                <Card style={{ width: "14rem" }}>
-                  <Card.Img variant="top" src={image_url} alt={name} />
-                  <Card.Body>
-                    <Card.Title>{name}</Card.Title>
-                    <Card.Text>{description}</Card.Text>
-                    <Link to={`/products/${id}`} className="btn btn-primary">See Details</Link>
-                    {
-                      user.role === 'admin' &&
-                      <Button
-                        onClick={() => { dispatch(removeProduct(id)) }}
-                        className="btn btn-danger">
-                        Remove
-                      </Button>
-                    }
-                  </Card.Body>
-                </Card>
+    <div className="container">
+    <h1 className="text-center mt-5"> PRODUCTS </h1>
+    <Slider {...settings}>
+      {data.map((item, index) => (
+        <div className="container d-flex justify-content-center mt-3" key={index}>
+          <Card className="container d-flex justify-content-center shadow p-3 mb-5 bg-white rounded">
+            <Card.Img variant="top" src={item.image_url} alt={item.model} />
+            <Card.Body className="text-center">
+              <Card.Title>{item.model}</Card.Title>
+              <Card.Text>{item.description}</Card.Text>
+              <div className="d-flex justify-content-center">
+              <Link to={`/products/${item.id}`} className="btn btn-primary m-1" size="sm">See Details</Link>
+                  {
+                    user.role === 'admin' &&
+                    <Button
+                      onClick={() => { dispatch(removeProduct(item.id)) }}
+                      className="btn btn-danger m-1" size="sm">
+                      Remove
+                    </Button>
+                  }
               </div>
-            );
-          })}
+              
+            </Card.Body>
+          </Card>
         </div>
-        <div className="arrows">
-          <button onClick={handleLeftClick}>
-            <FaChevronCircleRight size={40} fill='#97bf0f' style={{
-              background: '#fff',
-              border: 0
-            }} />
-          </button>
-        </div>
-      </div>
-    </div>
+      ))}
+    </Slider>
+  </div>
   );
 };
 

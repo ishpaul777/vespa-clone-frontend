@@ -5,24 +5,12 @@
   text-decoration: none;
 }
 
- .carousel {
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    max-width: fit-content;
-  }
-
-  .container .carousel::-webkit-scrollbar {
-    display: none;
-  }
-  
-.arrows {
-  margin-top: 8rem;
+.slider_arrows .slick-prev:before {
+  color: #97bf0f;
 }
 
-button:not(:disabled), [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled) {
-  cursor: pointer;
-  border: none;
-  background: white;
+.slider_arrows .slick-next:before {
+  color: #97bf0f;
 }
 
 .card-img-top {
@@ -30,3 +18,4 @@ button:not(:disabled), [type=button]:not(:disabled), [type=reset]:not(:disabled)
   height: 10vw;
   object-fit: cover;
 }
+
