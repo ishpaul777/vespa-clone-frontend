@@ -9,7 +9,9 @@ export default function productsReducer(state = initialState, action) {
     case ADD_PRODUCT:
       return action.payload;
     case REMOVE_PRODUCT:
-      return state.filter((product) => product.id !== action.payload.id);
+      // delete product from state
+      const newState = state.filter((product) => product.id !== action.payload);
+      return newState;
     case GET_PRODUCTS:
       return action.payload;
     default:
@@ -42,7 +44,7 @@ export function removeProduct(id) {
       },
     });
     const data = await response.json();
-    dispatch({ type: REMOVE_PRODUCT, payload: data });
+    dispatch({ type: REMOVE_PRODUCT, payload: id });
   };
 }
 
@@ -57,6 +59,7 @@ export function getProducts() {
     dispatch({ type: GET_PRODUCTS, payload: data });
   };
 }
+
 
 
 // todo: add config for upload images of products in rails
@@ -80,3 +83,6 @@ export function getProducts() {
 			// def image_url
 			// 	Rails.application.routes.url_helpers.url_for(image)
 			// end
+
+
+

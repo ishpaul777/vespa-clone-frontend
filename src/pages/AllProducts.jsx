@@ -5,7 +5,7 @@ import Card from "react-bootstrap/Card";
 import "../styles/carrocel.css";
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getProducts } from "../redux/products/products_reducer";
+import { getProducts, removeProduct } from "../redux/products/products_reducer";
 import { FaChevronCircleRight, FaChevronCircleLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
@@ -15,10 +15,11 @@ const AllProducts = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getProducts());
-  }, []);
+    if (!data.length) {
+      dispatch(getProducts());
+    }
+  }, [dispatch]);
 
-  console.log(data);
 
   const handleLeftClick = (e) => {
     e.preventDefault();
@@ -58,6 +59,9 @@ const AllProducts = () => {
                     <Card.Title>{name}</Card.Title>
                     <Card.Text>{description}</Card.Text>
                     <Link to={`/products/${id}`} className="btn btn-primary">See Details</Link>
+                    <Button
+                      onClick={() => { dispatch(removeProduct(id)) }}
+                      className="btn btn-danger">Remove</Button>
                   </Card.Body>
                 </Card>
               </div>
@@ -78,3 +82,4 @@ const AllProducts = () => {
 };
 
 export default AllProducts;
+
