@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/users/user_reducer";
 import { FaBars, FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 import { BsFillArrowLeftSquareFill } from "react-icons/bs";
@@ -24,15 +24,19 @@ const Sidebar = ({ children }) => {
       path: "/myReservations",
       name: "My Reservations",
     },
-    {
-      path: "/deleteMotorcycle",
-      name: "Delete Motorcycle",
-    },
-    {
-      path: "/addMotorcycle",
-      name: "Add Motorcycle",
-    },
   ];
+
+  const user = useSelector((state) => state.user);
+
+  user.role === "admin" && menuItem.push(
+    {
+      path: "/addProduct",
+      name: "Add Product",
+    },
+  )
+
+  console.log(user);
+
   return (
     <div className="sideBar-container">
       <div

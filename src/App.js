@@ -1,8 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Motorcycles from "./pages/Motorcycles";
-import AddMotorcycle from "./pages/AddMotorcycle";
-import DeleteMotorcycle from "./pages/DeleteMotorcycle";
+import AddProduct from "./pages/AddProduct";
 import MyReservations from "./pages/MyReservations";
 import Reserve from "./pages/Reserve";
 import Sidebar from "./components/Sidebar";
@@ -21,8 +20,7 @@ function App() {
               <Route path="/" element={<Motorcycles />} />
               <Route path="/reserve" element={<Reserve />} />
               <Route path="/myReservations" element={<MyReservations />} />
-              <Route path="/deleteMotorcycle" element={<DeleteMotorcycle />} />
-              <Route path="/addMotorcycle" element={<AddMotorcycle />} />
+              {user.role === 'admin' && <Route path="/addProduct" element={<AddProduct />} />}
             </Routes>
           </Sidebar>
         ) : (
@@ -30,10 +28,7 @@ function App() {
             <Route path="/" element={<SigninForm />} />
             <Route path="/signup" element={<SignupForm />} />
           </Routes>
-        )
-
-        }
-
+        )}
       </BrowserRouter>
     </div>
   );
