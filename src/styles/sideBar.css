@@ -13,11 +13,13 @@ body {
 .sideBar-container {
   display: flex;
 }
+
 main {
-  width: 100%;
+  width: 100vw;
   padding: 20px;
   box-shadow: rgb(0 0 0 / 16%) 3px 50px 10px;
 }
+
 .sidebar {
   background: #fff;
   color: #444;
@@ -31,14 +33,17 @@ main {
   gap: 5vh;
   align-items: center;
 }
+
 .top_section {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
+
 .logo {
   align-self: center;
 }
+
 .open-close-icons {
   display: flex;
   font-size: 25px;
@@ -51,6 +56,7 @@ main {
   margin-top: 3vh;
   width: 100%;
 }
+
 .link {
   display: flex;
   color: #444;
@@ -84,3 +90,15 @@ main {
   gap: 1rem;
   font-size: 1rem;
 }
+
+.menu-bars {
+  width: 2rem;
+}
+
+
+/* todo
+  1 - STYLE DETAILS PAGE
+  2 - Add reservation form
+  3 - Add all reservations page
+  4 - Update logic for fetching single product from database
+ */

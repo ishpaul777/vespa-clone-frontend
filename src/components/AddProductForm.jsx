@@ -36,10 +36,17 @@ function AddProductForm() {
 		}
 
 		submitToBackend(formData)
+		setProduct({
+			model: '',
+			color: '',
+			price: '',
+			description: ''
+		})
 	}
 
 	const submitToBackend = (formData) => {
 		dispatch(addProduct(formData))
+		
 	}
 
 	return (
@@ -52,6 +59,7 @@ function AddProductForm() {
 						className='form-control'
 						onChange={handleChange}
 						type="text"
+						value={product.model}
 						name="model" id="model" />
 				</div>
 				<div className="mb-3">
@@ -60,7 +68,9 @@ function AddProductForm() {
 						className='form-control'
 						onChange={handleChange}
 						type="text"
+						value={product.color}
 						name="color" id="color" />
+
 				</div>
 				<div className="mb-3">
 					<label htmlFor="price" className="form-label">Price</label>
@@ -68,6 +78,7 @@ function AddProductForm() {
 						className='form-control'
 						onChange={handleChange}
 						type="text"
+						value={product.price}
 						name="price" id="price" />
 				</div>
 				<div>
@@ -84,6 +95,7 @@ function AddProductForm() {
 						className='form-control'
 						onChange={handleChange}
 						name="description"
+						value={product.description}
 						id="description" />
 				</div>
 				<button type="submit" className='btn btn-primary'>Add Product</button>
