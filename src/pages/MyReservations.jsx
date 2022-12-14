@@ -14,11 +14,10 @@ const MyReservations = () => {
         }
     }, [dispatch]);
 
-    console.log(data)
-
     return (
-      <div>
-         <Table striped bordered hover>
+      <div className='container d-flex-column'>
+        <h1 className="text-center mt-5"> MY RESERVATIONS </h1>
+         <Table striped bordered hover size="sm" className='mt-5'>
       <thead>
         <tr>
           <th>CITY</th>
