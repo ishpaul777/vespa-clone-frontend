@@ -28,7 +28,7 @@ const MyReservations = () => {
       </thead>
       {data.map((item, index) => (
              <tbody>
-             <tr>
+             <tr key={index}>
               <td>{item.city}</td>
                <td>{item.reserved_date}</td>
                <td>product name</td>
