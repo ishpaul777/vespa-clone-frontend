@@ -37,20 +37,13 @@ function AddReservationForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const formData = new FormData()
-        formData.append('reservation[city]', reservation.city)
-        formData.append('reservation[reserved_date]', reservation.reserved_date)
-        
-        submitToBackend(formData)
+        dispatch(reserveTestDrive(reservation, productId))
+
         setReservation({
             city: '',
             reserved_date: '',
         })
-    }
-
-    const submitToBackend = (formData) => {
-        dispatch(reserveTestDrive(formData, productId))
-
+        
     }
 
     const productsOptions = allProducts.map((product) => (
