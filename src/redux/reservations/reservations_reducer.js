@@ -1,5 +1,6 @@
 const RESERVE_TEST_DRIVE = 'RESERVE_TEST_DRIVE';
 const CANCEL_TEST_DRIVE = 'CANCEL_TEST_DRIVE';
+const GET_RESERVATIONS = "GET_RESERVATIONS";
 
 export const reserveReducer = (state = [], action) => {
 	switch (action.type) {
@@ -7,6 +8,8 @@ export const reserveReducer = (state = [], action) => {
 			return [...state, action.payload];
 		case CANCEL_TEST_DRIVE:
 			return state.filter(reservation => reservation.id !== action.payload);
+		case GET_RESERVATIONS:
+			return action.payload;
 		default:
 			return state;
 	}
@@ -54,5 +57,17 @@ export const cancelTestDrive = (id) => {
 			.catch((error) => {
 				console.log(error);
 			});
+	};
+}
+
+export function getAllReservedProducts() {
+	return async (dispatch) => {
+		const response = await fetch("http://localhost:3000/reservations", {
+			headers: {
+				Authorization: JSON.parse(localStorage.getItem("user")).token,
+			},
+		});
+		const data = await response.json();
+		dispatch({ type: GET_RESERVATIONS, payload: data });
 	};
 }
