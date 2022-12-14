@@ -1,10 +1,9 @@
 import React from 'react';
+import AddReservationForm from '../components/AddReservationsForm';
 
 const Reserve = () => {
     return (
-        <div>
-            <h1>Reserve page</h1>
-        </div>
+        <AddReservationForm/>
     );
 };
 
