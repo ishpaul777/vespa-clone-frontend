@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/users/user_reducer";
 import { FaBars, FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 import { BsFillArrowLeftSquareFill } from "react-icons/bs";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "../styles/sideBar.css";
 import Vespalogo from "./vespaLogo";
 
@@ -12,6 +12,8 @@ const Sidebar = ({ children }) => {
   const [matches, setMatches] = useState(
     window.matchMedia("(max-width: 768px)").matches
   )
+
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     window
@@ -98,6 +100,7 @@ const Sidebar = ({ children }) => {
           onClick={() => {
             dispatch(logout());
             // redirect to login page
+            navigate("/");
           }}
         >
           Logout

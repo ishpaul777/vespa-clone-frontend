@@ -1,3 +1,5 @@
+import { setLoading } from "../loading/load_reducer";
+
 const LOG_IN = "LOG_IN";
 const LOG_OUT = "LOG_OUT";
 
@@ -22,6 +24,12 @@ export const login = (user) => {
         password: user.password,
       },
     };
+
+    dispatch({
+      type: "SET_LOADING",
+    });
+    // wait for 1000ms to simulate a loading time
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     const response = await fetch("http://localhost:3000/login", {
       method: "POST",
@@ -48,11 +56,20 @@ export const login = (user) => {
     } else {
       console.log(data);
     }
+    dispatch({
+      type: "SET_LOADING",
+    });
   };
 };
 
 export const logout = () => {
   return async (dispatch) => {
+    dispatch({
+      type: "SET_LOADING",
+    });
+
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
     fetch("http://localhost:3000/logout", {
       method: "DELETE",
       headers: {
@@ -68,6 +85,9 @@ export const logout = () => {
         console.error("Error:", error);
       });
     localStorage.removeItem("user");
+    dispatch({
+      type: "SET_LOADING",
+    });
     dispatch({
       type: LOG_OUT,
     });

@@ -1,7 +1,7 @@
 
-import { async } from 'q'
 import React from 'react'
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router'
 import { addProduct } from '../redux/products/products_reducer'
 
 function AddProductForm() {
@@ -44,9 +44,10 @@ function AddProductForm() {
 		})
 	}
 
+	const navigate = useNavigate()
 	const submitToBackend = (formData) => {
 		dispatch(addProduct(formData))
-		
+		navigate('/')
 	}
 
 	return (

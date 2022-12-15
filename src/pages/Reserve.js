@@ -1,11 +1,12 @@
-import React from 'react';
+import React from "react";
+import LoadingPage from "./LoadingPage";
 
 const Reserve = () => {
-    return (
-        <div>
-            <h1>Reserve page</h1>
-        </div>
-    );
+  return (
+    <div>
+      <LoadingPage />
+    </div>
+  );
 };
 
 export default Reserve;
