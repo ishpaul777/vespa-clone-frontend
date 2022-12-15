@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router'
@@ -26,22 +25,36 @@ function AddProductForm() {
 	const handleSubmit = (e) => {
 		e.preventDefault()
 		const formData = new FormData()
-		formData.append('product[model]', product.model)
-		formData.append('product[color]', product.color)
-		formData.append('product[price]', product.price)
-		formData.append('product[description]', product.description)
-		formData.append('product[image]', e.target.image.files[0])
-		for (var key of formData.entries()) {
-			console.log(key[0] + ', ' + key[1]);
+
+		if (validateFields(e.target)) {
+
+			formData.append('product[model]', product.model)
+			formData.append('product[color]', product.color)
+			formData.append('product[price]', product.price)
+			formData.append('product[description]', product.description)
+			formData.append('product[image]', e.target.image.files[0])
+
+			submitToBackend(formData)
+			setProduct({
+				model: '',
+				color: '',
+				price: '',
+				description: ''
+			})
+		} else {
+			alert('Please fill all the fields')
 		}
 
-		submitToBackend(formData)
-		setProduct({
-			model: '',
-			color: '',
-			price: '',
-			description: ''
-		})
+	}
+
+	const validateFields = (form) => {
+		if (form.image.files.length === 0) {
+			return false
+		}
+		if (product.model !== '' && product.color !== '' && product.price !== '' && product.description !== '') {
+			return true
+		}
+		return false;
 	}
 
 	const navigate = useNavigate()
