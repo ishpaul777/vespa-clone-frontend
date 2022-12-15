@@ -63,12 +63,12 @@ const AllProducts = () => {
 
 
   return (
-    <div className="container">
+    <div className="container-fluid ">
     <h1 className="text-center mt-5"> PRODUCTS </h1>
-    <Slider {...settings}>
+    <Slider {...settings} >
       {data.map((item, index) => (
-        <div className="container d-flex justify-content-center mt-3" key={index}>
-          <Card className="container d-flex justify-content-center shadow p-3 mb-5 bg-white rounded">
+        <div  key={index} className="m-2">
+          <Card className="m-1" >
             <Card.Img variant="top" src={item.image_url} alt={item.model} />
             <Card.Body className="text-center">
               <Card.Title>{item.model}</Card.Title>

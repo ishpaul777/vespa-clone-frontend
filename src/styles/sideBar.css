@@ -15,9 +15,9 @@ body {
 }
 
 main {
-  width: 100vw;
-  padding: 20px;
   box-shadow: rgb(0 0 0 / 16%) 3px 50px 10px;
+  width: 100vw;
+  height: 100vh;
 }
 
 .sidebar {
