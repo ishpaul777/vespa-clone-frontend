@@ -1,5 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -50,6 +51,7 @@ main {
   text-decoration: underline;
   cursor: pointer;
 }
+
 .links-container {
   display: flex;
   flex-direction: column;
@@ -66,16 +68,19 @@ main {
   font-weight: 800;
   text-decoration: none;
 }
+
 .link:hover {
   background: #dbff78;
   color: #444;
   transition: all 0.5s;
 }
+
 .active {
   background: #97bf2a;
   color: #fff;
   text-decoration: none;
 }
+
 .icon,
 .link_text {
   font-size: 20px;
@@ -85,7 +90,7 @@ main {
   display: flex;
   justify-content: space-between;
   justify-self: flex-end;
-  position: absolute;;
+  position: absolute;
   bottom: 5vh;
   gap: 1rem;
   font-size: 1rem;

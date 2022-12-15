@@ -1,16 +1,16 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { logout } from "./redux/users/user_reducer";
-import AllProducts from "./pages/AllProducts";
-import AddProduct from "./pages/AddProduct";
-import MyReservations from "./pages/MyReservations";
-import ProductDetails from "./pages/ProductDetails";
-import Reserve from "./pages/Reserve";
-import Sidebar from "./components/Sidebar";
-import SigninForm from "./components/SigninForm";
-import SignupForm from "./components/SignupForm";
-import LoadingPage from "./pages/LoadingPage";
-import Page404 from "./pages/Page404";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from './redux/users/user_reducer';
+import AllProducts from './pages/AllProducts';
+import AddProduct from './pages/AddProduct';
+import MyReservations from './pages/MyReservations';
+import ProductDetails from './pages/ProductDetails';
+import Reserve from './pages/Reserve';
+import Sidebar from './components/Sidebar';
+import SigninForm from './components/SigninForm';
+import SignupForm from './components/SignupForm';
+import LoadingPage from './pages/LoadingPage';
+import Page404 from './pages/Page404';
 
 function App() {
   const user = useSelector((state) => state.user);
@@ -26,11 +26,11 @@ function App() {
   }
 
   function checkAuth() {
-    const token = JSON.parse(localStorage.getItem("user")).token;
-    const response = fetch("http://localhost:3000/current_user", {
-      method: "GET",
+    const { token } = JSON.parse(localStorage.getItem('user'));
+    const response = fetch('http://localhost:3000/current_user', {
+      method: 'GET',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Authorization: token,
       },
     });
@@ -51,7 +51,7 @@ function App() {
               <Route path="/products/:id" element={<ProductDetails />} />
               <Route path="/reserve" element={<Reserve />} />
               <Route path="/myReservations" element={<MyReservations />} />
-              {user.role === "admin" && (
+              {user.role === 'admin' && (
                 <Route path="/addProduct" element={<AddProduct />} />
               )}
               <Route path="*" element={<Page404 />} />
