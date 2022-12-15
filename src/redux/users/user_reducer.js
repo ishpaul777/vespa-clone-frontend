@@ -1,4 +1,4 @@
-import { setLoading } from '../loading/load_reducer';
+// import { setLoading } from '../loading/load_reducer';
 
 const LOG_IN = 'LOG_IN';
 const LOG_OUT = 'LOG_OUT';

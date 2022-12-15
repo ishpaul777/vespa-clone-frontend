@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from './redux/users/user_reducer';
@@ -17,13 +18,6 @@ function App() {
   const loading = useSelector((state) => state.loading);
 
   const dispatch = useDispatch();
-  // when the window is reload, check if the auth token is still valid
-  // if not, logout the user
-  if (user) {
-    if (checkAuth() === false) {
-      dispatch(logout());
-    }
-  }
 
   function checkAuth() {
     const { token } = JSON.parse(localStorage.getItem('user'));
@@ -36,6 +30,15 @@ function App() {
     });
     return response.ok;
   }
+
+  // when the window is reload, check if the auth token is still valid
+  // if not, logout the user
+  if (user) {
+    if (checkAuth() === false) {
+      dispatch(logout());
+    }
+  }
+
 
   return (
     <div className="App">

@@ -1,33 +1,32 @@
 .product-img-main {
-	width: 100%;
+  width: 100%;
 }
 
 .product-card {
-	border: 1px solid #e0e0e0;
-	margin: 2rem;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-
-	height: 70vh
+  border: 1px solid #e0e0e0;
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 70vh;
 }
 
 .card-top {
-	height: 50%;
+  height: 50%;
 }
 
 .social-handle {
-	display: flex;
-	justify-content: space-evenly;
-	align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .social-handle .fa {
-	cursor: pointer;
-	color: grey;
+  cursor: pointer;
+  color: grey;
 }
 
 .actions-card {
-	position: absolute;
-	bottom: 2rem;
+  position: absolute;
+  bottom: 2rem;
 }

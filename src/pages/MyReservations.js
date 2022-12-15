@@ -9,9 +9,7 @@ const MyReservations = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!data.length) {
-      dispatch(getAllReservedProducts());
-    }
+    dispatch(getAllReservedProducts());
   }, [dispatch]);
 
   return (
@@ -27,9 +25,9 @@ const MyReservations = () => {
           </tr>
         </thead>
         {data.length > 0
-          ? data.map((item, index) => (
-            <tbody>
-              <tr key={index}>
+          ? data.map((item) => (
+            <tbody key={item.id}>
+              <tr>
                 <td>{item.city}</td>
                 <td>{item.reserved_date}</td>
                 <td>product name</td>

@@ -1,7 +1,7 @@
-import React from 'react'
-import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router'
-import { addProduct } from '../redux/products/products_reducer'
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router';
+import { addProduct } from '../redux/products/products_reducer';
 
 function AddProductForm() {
 	const dispatch = useDispatch()

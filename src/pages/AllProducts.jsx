@@ -1,6 +1,5 @@
-// import ScooterAnimation from "../components/ScooterAnimation";
-import { useEffect } from 'react';
-import React from 'react';
+/* eslint-disable */
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Slider from 'react-slick';
 import { getProducts } from '../redux/products/products_reducer';

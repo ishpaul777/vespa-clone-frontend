@@ -8,10 +8,11 @@ export default function productsReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_PRODUCT:
       return action.payload;
-    case REMOVE_PRODUCT:
+    case REMOVE_PRODUCT: {
       // delete product from state
       const newState = state.filter((product) => product.id !== action.payload);
       return newState;
+    }
     case GET_PRODUCTS:
       return action.payload;
     default:
