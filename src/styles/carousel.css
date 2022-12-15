@@ -28,8 +28,9 @@
   object-fit: cover;
 }
 
-.product-card {
-  width: 33.3333333333%;
-  height: 50vh;
-  overflow: hidden;
+.all-products-container {
+  width: 80vw;
+  gap: 1rem;
+  align-self: center;
+  padding: 2rem;
 }
