@@ -47,7 +47,7 @@ function ProductDetails() {
 	]
 
 	return (
-		<div className='d-flex h-100 justify-content-center align-items-center'>
+		<div className='details-page-container d-flex h-100 justify-content-center align-items-center'>
 			<div className='product-img-container'>
 				<img src={product.image_url} alt={product.name} className="product_image" />
 			</div>

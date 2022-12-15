@@ -9,17 +9,8 @@ import Vespalogo from "./vespaLogo";
 
 const Sidebar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [matches, setMatches] = useState(
-    window.matchMedia("(max-width: 768px)").matches
-  )
 
   const navigate = useNavigate();
-
-  React.useEffect(() => {
-    window
-      .matchMedia("(min-width: 768px)")
-      .addEventListener('change', e => setMatches(e.matches));
-  }, []);
 
   const toggle = () => setIsOpen(!isOpen);
   const dispatch = useDispatch();
@@ -47,12 +38,11 @@ const Sidebar = ({ children }) => {
     },
   )
 
-
   return (
     <div className="sideBar-container">
       <div
         style={{
-          width: isOpen ? (matches ? "250px" : "300px") : (matches ? "12vw" : "75px"),
+          width: isOpen ? "250px" : "60px",
           paddingLeft: isOpen || "0",
         }}
         className="sidebar"

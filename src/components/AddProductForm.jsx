@@ -5,15 +5,6 @@ import { addProduct } from '../redux/products/products_reducer'
 
 function AddProductForm() {
 	const dispatch = useDispatch()
-	const [matches, setMatches] = React.useState(
-		window.matchMedia("(max-width: 768px)").matches
-	)
-
-	React.useEffect(() => {
-		window
-			.matchMedia("(min-width: 768px)")
-			.addEventListener('change', e => setMatches(e.matches));
-	}, []);
 
 	const [product, setProduct] = React.useState({
 		model: '',
@@ -74,7 +65,7 @@ function AddProductForm() {
 	return (
 		<div className="add-product-form w-100 d-flex flex-column align-items-center justify-content-center h-100 mt-5">
 			<h1>Add New Product</h1>
-			<form onSubmit={(e) => handleSubmit(e)} className={`${ matches ? 'w-100' :'w-50' } mt-3`}>
+			<form onSubmit={(e) => handleSubmit(e)} className="mt-3 add-product-form">
 				<div className="mb-3">
 					<label htmlFor="model" className="form-label">Model</label>
 					<input

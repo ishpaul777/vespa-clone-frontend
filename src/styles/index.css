@@ -39,6 +39,10 @@ code {
   background-color: white;
 }
 
+.add-product-form {
+  width: 50%;
+}
+
 .Auth-content {
   padding-left: 12%;
   padding-right: 12%;
@@ -71,6 +75,13 @@ label {
 
 @media screen and (max-width: 768px) {
   .product_image {
-    width: 90vw;
+    width: 60vw;
+  }
+  .add-product-form {
+    width: 100%;
+  }
+  .details-page-container {
+    flex-direction: column;
+    width: 100%;
   }
 }
