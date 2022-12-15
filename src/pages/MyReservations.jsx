@@ -1,6 +1,9 @@
 import React from 'react';
+import { useEffect } from 'react';
 import Table from 'react-bootstrap/Table';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import {getAllReservedProducts} from '../redux/reservations/reservations_reducer'
 
 const MyReservations = () => {
   const data = useSelector((state) => state.reservations);
