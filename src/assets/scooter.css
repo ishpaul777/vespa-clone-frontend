@@ -88,7 +88,7 @@ body {
   z-index: -3;
   margin-left: 75px;
   margin-top: 18px;
-  box-shadow: 0 0 10px ffa805;
+  box-shadow: 0 0 10px #ffa805;
 }
 
 .seat {
@@ -360,7 +360,6 @@ li {
   display: block;
   position: absolute;
   bottom: -35px;
-  left: 50%;
   margin-left: -20px;
   height: 0;
   width: 0;
