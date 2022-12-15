@@ -52,7 +52,7 @@ const Sidebar = ({ children }) => {
     <div className="sideBar-container">
       <div
         style={{
-          width: isOpen ? (matches ? "250px" : "300px") : (matches ? "40vw" : "75px"),
+          width: isOpen ? (matches ? "250px" : "300px") : (matches ? "12vw" : "75px"),
           paddingLeft: isOpen || "0",
         }}
         className="sidebar"
