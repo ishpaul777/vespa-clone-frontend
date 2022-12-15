@@ -1,24 +1,23 @@
-import React from 'react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Table from 'react-bootstrap/Table';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllReservedProducts } from '../redux/reservations/reservations_reducer'
+import { getAllReservedProducts } from '../redux/reservations/reservations_reducer';
 
 const MyReservations = () => {
-    const data = useSelector((state) => state.reservations);
-    const dispatch = useDispatch();
+  const data = useSelector((state) => state.reservations);
+  const dispatch = useDispatch();
 
-    useEffect(() => {
-        if (!data.length) {
-            dispatch(getAllReservedProducts());
-        }
-    }, [dispatch]);
+  useEffect(() => {
+    if (!data.length) {
+      dispatch(getAllReservedProducts());
+    }
+  }, [dispatch]);
 
-    return (
-        <div className='container d-flex-column'>
+  return (
+    <div className="container d-flex-column">
       <h1 className="text-center mt-5"> MY RESERVATIONS </h1>
-      <Table responsive="xl" >
+      <Table responsive="xl">
         <thead>
           <tr>
             <th>CITY</th>
@@ -28,8 +27,7 @@ const MyReservations = () => {
           </tr>
         </thead>
         {data.length > 0
-          ?
-          data.map((item, index) => (
+          ? data.map((item, index) => (
             <tbody>
               <tr key={index}>
                 <td>{item.city}</td>
@@ -39,25 +37,25 @@ const MyReservations = () => {
               </tr>
             </tbody>
           ))
-          : <tbody className='text-center'>
-            <tr>
-              <td
-                colSpan='4'
-              >
-                No reservations yet
-                <Link to='/reserve' className="mt-3 btn btn-primary w-20 m-auto d-block">
-                  Add +
-                </Link>
-              </td>
+          : (
+            <tbody className="text-center">
+              <tr>
+                <td
+                  colSpan="4"
+                >
+                  No reservations yet
+                  <Link to="/reserve" className="mt-3 btn btn-primary w-20 m-auto d-block">
+                    Add +
+                  </Link>
+                </td>
 
-            </tr>
-          </tbody>
-        }
-
+              </tr>
+            </tbody>
+          )}
 
       </Table>
     </div>
-    );
+  );
 };
 
 export default MyReservations;

@@ -1,6 +1,6 @@
-const ADD_PRODUCT = "ADD_PRODUCT";
-const REMOVE_PRODUCT = "REMOVE_PRODUCT";
-const GET_PRODUCTS = "GET_PRODUCTS";
+const ADD_PRODUCT = 'ADD_PRODUCT';
+const REMOVE_PRODUCT = 'REMOVE_PRODUCT';
+const GET_PRODUCTS = 'GET_PRODUCTS';
 
 const initialState = [];
 
@@ -22,22 +22,22 @@ export default function productsReducer(state = initialState, action) {
 export function addProduct(product) {
   return async (dispatch) => {
     dispatch({
-      type: "SET_LOADING",
+      type: 'SET_LOADING',
     });
     // wait for 1000ms to simulate a loading time
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    const response = await fetch("http://localhost:3000/products", {
-      method: "POST",
+    const response = await fetch('http://localhost:3000/products', {
+      method: 'POST',
       headers: {
-        Authorization: JSON.parse(localStorage.getItem("user")).token,
+        Authorization: JSON.parse(localStorage.getItem('user')).token,
       },
       body: product,
     });
     const data = await response.json();
     dispatch({ type: ADD_PRODUCT, payload: data });
     dispatch({
-      type: "SET_LOADING",
+      type: 'SET_LOADING',
     });
   };
 }
@@ -45,24 +45,24 @@ export function addProduct(product) {
 export function removeProduct(id) {
   return async (dispatch) => {
     dispatch({
-      type: "SET_LOADING",
+      type: 'SET_LOADING',
     });
     // wait for 1000ms to simulate a loading time
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     const response = await fetch(`http://localhost:3000/products/${id}`, {
-      method: "DELETE",
+      method: 'DELETE',
       headers: {
-        Authorization: JSON.parse(localStorage.getItem("user")).token,
+        Authorization: JSON.parse(localStorage.getItem('user')).token,
       },
     });
     if (response.ok) {
       dispatch({ type: REMOVE_PRODUCT, payload: id });
       dispatch({
-        type: "SET_LOADING",
+        type: 'SET_LOADING',
       });
     } else {
-      console.log("something went wrong");
+      console.log('something went wrong');
     }
   };
 }
@@ -70,20 +70,20 @@ export function removeProduct(id) {
 export function getProducts() {
   return async (dispatch) => {
     dispatch({
-      type: "SET_LOADING",
+      type: 'SET_LOADING',
     });
     // wait for 1000ms to simulate a loading time
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    const response = await fetch("http://localhost:3000/products", {
+    const response = await fetch('http://localhost:3000/products', {
       headers: {
-        Authorization: JSON.parse(localStorage.getItem("user")).token,
+        Authorization: JSON.parse(localStorage.getItem('user')).token,
       },
     });
     const data = await response.json();
     dispatch({ type: GET_PRODUCTS, payload: data });
     dispatch({
-      type: "SET_LOADING",
+      type: 'SET_LOADING',
     });
   };
 }

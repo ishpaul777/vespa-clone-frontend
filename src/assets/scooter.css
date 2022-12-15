@@ -7,6 +7,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+
   /* set height */
   height: 200px;
 }
@@ -17,10 +18,10 @@ body {
 }
 
 #scooter {
-	width: 100vw;
+  width: 100vw;
   z-index: 12;
   position: absolute;
-	top: 30%;
+  top: 30%;
   right: 0;
   margin-right: 10px;
   animation: movescooter;
@@ -48,9 +49,11 @@ body {
   animation-duration: 1s;
   animation-iteration-count: infinite;
 }
+
 .wheels2 {
   margin-left: 110px;
 }
+
 .Sback {
   background: linear-gradient(#ffa805, #deceb1, #fda400);
   width: 80px;
@@ -64,7 +67,8 @@ body {
   margin-left: 83px;
   box-shadow: inset 0 10px 0 #ffa805;
 }
-.Sback:before {
+
+.Sback::before {
   content: "";
   background: linear-gradient(#ffa805, #deceb1, #fda400);
   width: 47px;
@@ -74,7 +78,8 @@ body {
   margin-top: 30px;
   box-shadow: inset 0 5px 0 #ffa805;
 }
-.Sback:after {
+
+.Sback::after {
   content: "";
   background: linear-gradient(#ffa805, #deceb1, #fda400);
   width: 10px;
@@ -85,6 +90,7 @@ body {
   margin-top: 18px;
   box-shadow: 0 0 10px ffa805;
 }
+
 .seat {
   background-color: black;
   width: 50px;
@@ -95,16 +101,18 @@ body {
   margin-left: 4px;
   box-shadow: inset 0 3px 0 #363b42;
 }
+
 .seat::after {
   content: "";
   background-color: black;
   width: 35px;
   height: 15px;
   position: absolute;
-  border-radius: 10px 10px 0px 10px;
+  border-radius: 10px 10px 0 10px;
   margin-left: 50px;
   box-shadow: inset 0 3px 0 #363b42;
 }
+
 .seatholder {
   background-color: white;
   width: 4px;
@@ -115,9 +123,11 @@ body {
   margin-top: 10px;
   transform: rotate(45deg);
 }
+
 li {
   display: block;
 }
+
 .seatbar,
 .seatbar2 {
   width: 40px;
@@ -127,9 +137,11 @@ li {
   margin-top: 20px;
   margin-left: 25px;
 }
+
 .seatbar2 {
   margin-top: 27px;
 }
+
 .Sfront {
   background: linear-gradient(#ffa805, #deceb1, #fda400);
   width: 8px;
@@ -140,6 +152,7 @@ li {
   transform: rotate(15deg);
   box-shadow: inset 4px 0 0 #ffa805;
 }
+
 .Sfront::before {
   content: "";
   width: 15px;
@@ -150,6 +163,7 @@ li {
   border-top-left-radius: 110px;
   border-bottom-left-radius: 110px;
 }
+
 .Sfront::after {
   content: "";
   background: linear-gradient(#ffa805, #deceb1, #fda400);
@@ -164,6 +178,7 @@ li {
   transform: rotate(-10deg);
   box-shadow: inset 0 10px 0 #d6820c;
 }
+
 .hlight {
   background: linear-gradient(#ffa805, #deceb1, #fda400);
   width: 20px;
@@ -175,7 +190,8 @@ li {
   margin-top: 90px;
   box-shadow: inset 4px 0 0 #900c3f;
 }
-.hlight:before {
+
+.hlight::before {
   content: "";
   width: 10px;
   height: 20px;
@@ -186,6 +202,7 @@ li {
   margin-left: -6px;
   box-shadow: 0 0 10px yellow;
 }
+
 .hlight::after {
   content: "";
   background: linear-gradient(#262626, #eaeaea);
@@ -197,6 +214,7 @@ li {
   transform: skewX(-15deg);
   box-shadow: 0 0 10px yellow;
 }
+
 .handle {
   position: absolute;
   width: 20px;
@@ -208,6 +226,7 @@ li {
   margin-left: 47px;
   margin-top: 82px;
 }
+
 .handle::after {
   content: "";
   background: linear-gradient(#ffa805, #deceb1, #fda400);
@@ -221,6 +240,7 @@ li {
   margin-left: 10px;
   transform: rotate(-20deg);
 }
+
 .legl {
   background-color: brown;
   width: 43px;
@@ -232,7 +252,8 @@ li {
   position: absolute;
   z-index: 12;
 }
-.legl:after {
+
+.legl::after {
   content: "";
   background-color: brown;
   width: 12px;
@@ -242,6 +263,7 @@ li {
   margin-top: 4px;
   margin-left: -10px;
 }
+
 .legl::before {
   content: "";
   background-color: yellow;
@@ -254,6 +276,7 @@ li {
   border-top-left-radius: 100%;
   border-top-right-radius: 10px;
 }
+
 .body1 {
   background-color: #f76233;
   width: 23px;
@@ -265,6 +288,7 @@ li {
   margin-left: 90px;
   transform: rotate(-5deg);
 }
+
 .body1::after {
   content: "";
   background-color: #900c3f;
@@ -277,6 +301,7 @@ li {
   margin-left: 5px;
   transform: rotate(-10deg);
 }
+
 .body1::before {
   content: "";
   background-color: #ffd374;
@@ -288,6 +313,7 @@ li {
   border-top-left-radius: 10px;
   transform: rotate(-10deg);
 }
+
 .head {
   background-color: #ffd374;
   width: 25px;
@@ -297,6 +323,7 @@ li {
   margin-top: 40px;
   margin-left: 80px;
 }
+
 .head::before {
   content: "";
   background-color: #ffd374;
@@ -307,6 +334,7 @@ li {
   position: absolute;
   margin-left: -2px;
 }
+
 .head::after {
   content: "";
   width: 10px;
@@ -317,6 +345,7 @@ li {
   margin-left: -40px;
   margin-top: 55px;
 }
+
 #smoke {
   position: absolute;
   z-index: 3;
@@ -333,22 +362,25 @@ li {
   bottom: -35px;
   left: 50%;
   margin-left: -20px;
-  height: 0px;
-  width: 0px;
+  height: 0;
+  width: 0;
   border: 35px solid #4b4b4b;
   border-radius: 35px;
   left: -14px;
   opacity: 0;
   transform: scale(0.2);
 }
+
 @keyframes smokeL {
   0% {
     transform: scale(0.2) translate(0, 0);
   }
+
   10% {
     opacity: 1;
     transform: scale(0.2) translate(0, -5px);
   }
+
   100% {
     opacity: 0;
     transform: scale(1) translate(-20px, -130px);
@@ -359,10 +391,12 @@ li {
   0% {
     transform: scale(0.2) translate(0, 0);
   }
+
   10% {
     opacity: 1;
     transform: scale(0.2) translate(0, -5px);
   }
+
   100% {
     opacity: 0;
     transform: scale(1) translate(20px, -130px);
@@ -372,49 +406,62 @@ li {
 #smoke .s0 {
   animation: smokeL 4s 0s infinite;
 }
+
 #smoke .s1 {
   animation: smokeR 4s 1s infinite;
 }
+
 #smoke .s2 {
   animation: smokeL 4s 2s infinite;
 }
+
 #smoke .s3 {
   animation: smokeR 4s 3s infinite;
 }
+
 #smoke .s4 {
   animation: smokeL 4s 4s infinite;
 }
+
 #smoke .s5 {
   animation: smokeR 2s 5s infinite;
 }
+
 #smoke .s6 {
   animation: smokeL 2s 6s infinite;
 }
+
 #smoke .s7 {
   animation: smokeR 2s 7s infinite;
 }
+
 #smoke .s8 {
   animation: smokeL 2s 8s infinite;
 }
+
 #smoke .s9 {
   animation: smokeR 2s 9s infinite;
 }
+
 @keyframes movescooter {
   /* start fron right of screen  */
   from {
-		transform: translate(100%, 0);
-	}
-	/* 50% of animation time */
-	48% {
-		transform: translate(-98%, 0) scaleX(1);
-	}
-	50% {
-		transform: translate(-100%, 0) scaleX(-1);
-	}
-	/* 100% of animation time */
-	to {
-		transform: translate(100%, 0) scaleX(-1);
-	}
+    transform: translate(100%, 0);
+  }
+
+  /* 50% of animation time */
+  48% {
+    transform: translate(-98%, 0) scaleX(1);
+  }
+
+  50% {
+    transform: translate(-100%, 0) scaleX(-1);
+  }
+
+  /* 100% of animation time */
+  to {
+    transform: translate(100%, 0) scaleX(-1);
+  }
 }
 
 @keyframes rotatewheels {
