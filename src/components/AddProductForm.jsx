@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import { addProduct } from '../redux/products/products_reducer';
 
 function AddProductForm() {
@@ -32,7 +32,6 @@ function AddProductForm() {
   };
 
   const navigate = useNavigate();
-
   const submitToBackend = (formData) => {
     dispatch(addProduct(formData));
     navigate('/');

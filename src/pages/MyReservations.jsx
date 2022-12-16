@@ -1,16 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Table from 'react-bootstrap/Table';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
 import { getAllReservedProducts } from '../redux/reservations/reservations_reducer';
 
 const MyReservations = () => {
   const data = useSelector((state) => state.reservations);
+
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  React.useEffect(() => {
     dispatch(getAllReservedProducts());
-  }, [dispatch]);
+  }, []);
 
   return (
     <div className="container w-75 d-flex-column align-items-center justify-content-center">
@@ -20,18 +21,26 @@ const MyReservations = () => {
           <tr>
             <th>CITY</th>
             <th>DATE OF RESERVATION</th>
-            <th>PRODUCT NAME</th>
-            <th>PRODUCT COLOR</th>
+            <th>PRODUCT MODEL</th>
+            <th>
+              View Product
+            </th>
           </tr>
         </thead>
-        {data.length > 0
+        {data
           ? data.map((item) => (
             <tbody key={item.id}>
               <tr>
                 <td>{item.city}</td>
                 <td>{item.reserved_date}</td>
-                <td>product name</td>
-                <td>product color</td>
+                <td>
+                  {item.product.model}
+                </td>
+                <td>
+                  <Link to={`/products/${item.product.id}`} className="btn btn-primary">
+                    View
+                  </Link>
+                </td>
               </tr>
             </tbody>
           ))

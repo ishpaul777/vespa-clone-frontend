@@ -18,7 +18,7 @@ export const reserveReducer = (state = [], action) => {
 
 export const reserveTestDrive = (reservation, productId) => async (dispatch) => {
   const product_id = Number(productId);
-  const response = await fetch(`http://localhost:3000/products/${product_id}/reservations/`, { // -> /products/:product_id/reservations
+  const response = await fetch(`http://localhost:3000/reservations/${product_id}`, {
     method: 'POST',
     headers: {
       Authorization: JSON.parse(localStorage.getItem('user')).token,
@@ -64,6 +64,7 @@ export function getAllReservedProducts() {
         Authorization: JSON.parse(localStorage.getItem('user')).token,
       },
     });
+    console.log(response);
     const data = await response.json();
     dispatch({ type: GET_RESERVATIONS, payload: data });
   };

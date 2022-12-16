@@ -7,7 +7,7 @@ const initialState = [];
 export default function productsReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_PRODUCT:
-      return action.payload;
+      return [...state, action.payload];
     case REMOVE_PRODUCT: {
       // delete product from state
       const newState = state.filter((product) => product.id !== action.payload);
@@ -59,12 +59,12 @@ export function removeProduct(id) {
     });
     if (response.ok) {
       dispatch({ type: REMOVE_PRODUCT, payload: id });
-      dispatch({
-        type: 'SET_LOADING',
-      });
     } else {
       console.log('something went wrong');
     }
+    dispatch({
+      type: 'SET_LOADING',
+    });
   };
 }
 

@@ -1,23 +1,16 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { Form } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
-import { getProducts } from '../redux/products/products_reducer';
+// import { useNavigate } from 'react-router-dom';
 import { reserveTestDrive } from '../redux/reservations/reservations_reducer';
 
 function AddReservationForm() {
   const allProducts = useSelector((state) => state.products);
   const [productId, setProductId] = useState('');
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (!allProducts) {
-      dispatch(getProducts());
-    }
-  }, [dispatch]);
 
   const [reservation, setReservation] = React.useState({
     city: '',
@@ -42,7 +35,7 @@ function AddReservationForm() {
       reserved_date: '',
     });
 
-    navigate('/myReservations');
+    // navigate('/myReservations');
   };
 
   const productsOptions = allProducts.map((product) => (
