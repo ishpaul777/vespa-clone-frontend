@@ -13,8 +13,8 @@ const MyReservations = () => {
   }, [dispatch]);
 
   return (
-    <div className="container d-flex-column">
-      <h1 className="text-center mt-5"> MY RESERVATIONS </h1>
+    <div className="container w-75 d-flex-column align-items-center justify-content-center">
+      <h1 className="text-center mt-5 mb-3"> MY RESERVATIONS </h1>
       <Table responsive="xl">
         <thead>
           <tr>
@@ -42,11 +42,10 @@ const MyReservations = () => {
                   colSpan="4"
                 >
                   No reservations yet
-                  <Link to="/reserve" className="mt-3 btn btn-primary w-20 m-auto d-block">
+                  <Link to="/reserve" className="mt-3 btn btn-primary w-25 m-auto d-block">
                     Add +
                   </Link>
                 </td>
-
               </tr>
             </tbody>
           )}

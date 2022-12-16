@@ -1,22 +1,16 @@
 /* eslint-disable */
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
-import { getProducts } from '../redux/products/products_reducer';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../styles/carousel.css';
 import ProductCard from '../components/ProductCard';
 
-const AllProducts = () => {
-  const dispatch = useDispatch();
-  const data = useSelector((state) => state.products);
+const AllProducts = ({ data }) => {
 
-  useEffect(() => {
-    if (!data) {
-      dispatch(getProducts());
-    }
-  }, []);
+  const user = useSelector((state) => state.user);
 
   const settings = {
     arrows: true,
@@ -54,7 +48,21 @@ const AllProducts = () => {
     ],
   };
 
-  if (!data || !data.length) return null;
+  if (!data || !data.length) return (
+    <div className="container w-50 d-flex flex-column">
+      <h1 className="text-center mt-5"> No Products to shop </h1>
+      <p className="text-middle">
+        <i>
+          If you are a store admin, please add products to your store.
+        </i>
+      </p>
+      {user && user.role === 'admin' && (
+        <Link to="/addProduct" className="btn btn-primary">
+          Add Products
+        </Link>
+      )}
+    </div>
+  )
 
   return (
     <div className="container w-100 d-flex flex-column">

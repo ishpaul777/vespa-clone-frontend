@@ -1,7 +1,9 @@
-/* eslint-disable */
+/* eslint-disable no-nested-ternary */
+import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from './redux/users/user_reducer';
+import { getProducts } from './redux/products/products_reducer';
 import AllProducts from './pages/AllProducts';
 import AddProduct from './pages/AddProduct';
 import MyReservations from './pages/MyReservations';
@@ -18,6 +20,12 @@ function App() {
   const loading = useSelector((state) => state.loading);
 
   const dispatch = useDispatch();
+
+  const data = useSelector((state) => state.products);
+
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
 
   function checkAuth() {
     const { token } = JSON.parse(localStorage.getItem('user'));
@@ -39,7 +47,6 @@ function App() {
     }
   }
 
-
   return (
     <div className="App">
       {/* define routes */}
@@ -49,8 +56,8 @@ function App() {
         ) : user ? (
           <Sidebar>
             <Routes>
-              <Route path="/" element={<AllProducts />} />
-              <Route path="/allProducts" element={<AllProducts />} />
+              <Route path="/" element={<AllProducts data={data} />} />
+              <Route path="/products" element={<AllProducts data={data} />} />
               <Route path="/products/:id" element={<ProductDetails />} />
               <Route path="/reserve" element={<Reserve />} />
               <Route path="/myReservations" element={<MyReservations />} />

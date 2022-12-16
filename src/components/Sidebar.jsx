@@ -1,14 +1,19 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../redux/users/user_reducer";
-import { FaBars, FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
-import { BsFillArrowLeftSquareFill } from "react-icons/bs";
-import { NavLink, useNavigate } from "react-router-dom";
-import "../styles/sideBar.css";
-import Vespalogo from "./vespaLogo";
+/* eslint-disable react/no-array-index-key */
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  FaBars, FaFacebookF, FaTwitter, FaLinkedinIn,
+} from 'react-icons/fa';
+import { BsFillArrowLeftSquareFill } from 'react-icons/bs';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { logout } from '../redux/users/user_reducer';
+import '../styles/sideBar.css';
+import Vespalogo from './vespaLogo';
 
 const Sidebar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const user = useSelector((state) => state.user);
 
   const navigate = useNavigate();
 
@@ -16,46 +21,41 @@ const Sidebar = ({ children }) => {
   const dispatch = useDispatch();
   const menuItem = [
     {
-      path: "/",
-      name: "Motorcycles",
+      path: '/',
+      name: 'Motorcycles',
     },
     {
-      path: "/reserve",
-      name: "Reserve",
+      path: '/reserve',
+      name: 'Reserve',
     },
     {
-      path: "/myReservations",
-      name: "My Reservations",
+      path: '/myReservations',
+      name: 'My Reservations',
+    },
+    user.role === 'admin' && {
+      path: '/addProduct',
+      name: 'Add Product',
     },
   ];
-
-  const user = useSelector((state) => state.user);
-
-  user.role === "admin" && menuItem.push(
-    {
-      path: "/addProduct",
-      name: "Add Product",
-    },
-  )
 
   return (
     <div className="sideBar-container">
       <div
         style={{
-          width: isOpen ? "250px" : "60px",
-          paddingLeft: isOpen || "0",
+          width: isOpen ? '250px' : '60px',
+          paddingLeft: isOpen || '0',
         }}
         className="sidebar"
       >
         <div
           className="top_section d-flex align-items-center"
-          style={{ width: isOpen || "fit-content" }}
+          style={{ width: isOpen || 'fit-content' }}
         >
           {isOpen && <Vespalogo />}
           <div
             style={{
-              marginLeft: isOpen ? "50px" : "0px",
-              padding: isOpen ? "0px" : "10px",
+              marginLeft: isOpen ? '50px' : '0px',
+              padding: isOpen ? '0px' : '10px',
             }}
             className="open-close-icons"
           >
@@ -70,13 +70,13 @@ const Sidebar = ({ children }) => {
           {menuItem.map((item, index) => (
             <NavLink
               to={item.path}
-              key={index}
+              key={`${index}${item.name}`}
               className="link"
               activeclassName="active"
-              style={{ display: isOpen ? "block" : "none" }}
+              style={{ display: isOpen ? 'block' : 'none' }}
             >
               <div
-                style={{ display: isOpen ? "block" : "none" }}
+                style={{ display: isOpen ? 'block' : 'none' }}
                 className="link_text"
               >
                 {item.name}
@@ -85,19 +85,20 @@ const Sidebar = ({ children }) => {
           ))}
         </div>
         <button
+          type="button"
           className="logout-btn btn btn-light"
-          style={{ display: isOpen ? "block" : "none", alignSelf: "flex-start" }}
+          style={{ display: isOpen ? 'block' : 'none', alignSelf: 'flex-start' }}
           onClick={() => {
             dispatch(logout());
             // redirect to login page
-            navigate("/");
+            navigate('/');
           }}
         >
           Logout
         </button>
         <div
           className="social-media"
-          style={{ display: isOpen ? "flex" : "none" }}
+          style={{ display: isOpen ? 'flex' : 'none' }}
         >
           <FaTwitter />
           <FaFacebookF />
@@ -105,7 +106,7 @@ const Sidebar = ({ children }) => {
         </div>
       </div>
       <main>{children}</main>
-    </div >
+    </div>
   );
 };
 
