@@ -71,8 +71,7 @@ const Sidebar = ({ children }) => {
             <NavLink
               to={item.path}
               key={`${index}${item.name}`}
-              className="link"
-              activeclassName="active"
+              className={({ isActive }) => `${isActive ? 'active' : 'none'} link`}
               style={{ display: isOpen ? 'block' : 'none' }}
             >
               <div
