@@ -10,7 +10,8 @@ import { getProducts } from '../redux/products/products_reducer';
 
 function AddReservationForm() {
   const allProducts = useSelector((state) => state.products);
-  const [productId, setProductId] = useState(allProducts[0].id);
+  const initialproductId = allProducts && allProducts.length > 0 ? allProducts[0].id : '';
+  const [productId, setProductId] = useState(initialproductId);
   // const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -18,7 +19,7 @@ function AddReservationForm() {
     if (!allProducts) { dispatch(getProducts()); }
   }, []);
 
-  const [reservation, setReservation] = React.useState({
+  const [reservation, setReservation] = useState({
     city: '',
     reserved_date: '',
   });
