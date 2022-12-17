@@ -2,11 +2,12 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 import '../styles/productCard.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { removeProduct } from '../redux/products/products_reducer';
 
 const ProductCard = (item) => {
   const navigate = useNavigate();
+  const user = useSelector((state) => state.user);
   const showDetailsPage = (id) => {
     navigate(`/products/${id}`);
   };
@@ -43,13 +44,18 @@ const ProductCard = (item) => {
               <FaInstagram className="fa fs-5 fa-instagram" />
             </div>
             <button type="button" onClick={() => showDetailsPage(product.id)} className="btn btn-primary m-2">Know More</button>
-            <button
-              onClick={() => dispatch(removeProduct(product.id))}
-              type="button"
-              className="btn btn-danger m-2"
-            >
-              Delete Listing
-            </button>
+            {
+              user.role === 'admin'
+              && (
+              <button
+                onClick={() => dispatch(removeProduct(product.id))}
+                type="button"
+                className="btn btn-danger m-2"
+              >
+                Delete Listing
+              </button>
+              )
+            }
           </div>
         </div>
       </div>

@@ -32,10 +32,6 @@ const Sidebar = ({ children }) => {
       path: '/myReservations',
       name: 'My Reservations',
     },
-    user.role === 'admin' && {
-      path: '/addProduct',
-      name: 'Add Product',
-    },
   ];
 
   return (
@@ -82,6 +78,22 @@ const Sidebar = ({ children }) => {
               </div>
             </NavLink>
           ))}
+          {
+            user.role === 'admin' && (
+              <NavLink
+                to="/addProduct"
+                className={({ isActive }) => `${isActive ? 'active' : 'none'} link`}
+                style={{ display: isOpen ? 'block' : 'none' }}
+              >
+                <div
+                  style={{ display: isOpen ? 'block' : 'none' }}
+                  className="link_text"
+                >
+                  Add Product
+                </div>
+              </NavLink>
+            )
+          }
         </div>
         <button
           type="button"
