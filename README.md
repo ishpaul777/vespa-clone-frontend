@@ -81,7 +81,7 @@ git clone https://github.com/ishpaul777/vespa-clone-frontend
 
 ## 🤝 Contributing
 
-Contributions, ([Issues](https://github.com/ishpaul777/vespa-clone-frontend/issues)), and feature requests are welcome!
+Contributions, [Issues](https://github.com/ishpaul777/vespa-clone-frontend/issues), and feature requests are welcome!
 
 Feel free to check the issues page.
 
@@ -91,7 +91,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 - I would like to thank to [Microverse](https://www.microverse.org/)
-- Original design by (([Murat Korkmaz](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign)))) on Behance
+- Original design by [Murat Korkmaz](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign) on Behance
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
