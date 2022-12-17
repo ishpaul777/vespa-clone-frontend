@@ -53,7 +53,7 @@ git clone https://github.com/ishpaul777/vespa-clone-frontend
 
 
 ## 🛠 Link to Back-end <a name="built-with"></a>
-([Back-end](https://github.com/ishpaul777/vespa-clone-backend))
+[Back-end](https://github.com/ishpaul777/vespa-clone-backend)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
