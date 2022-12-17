@@ -5,12 +5,18 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Form } from 'react-bootstrap';
 // import { useNavigate } from 'react-router-dom';
 import { reserveTestDrive } from '../redux/reservations/reservations_reducer';
+import LoadingPage from '../pages/LoadingPage';
+import { getProducts } from '../redux/products/products_reducer';
 
 function AddReservationForm() {
   const allProducts = useSelector((state) => state.products);
-  const [productId, setProductId] = useState('');
+  const [productId, setProductId] = useState(allProducts[0].id);
   // const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    if (!allProducts) { dispatch(getProducts()); }
+  }, []);
 
   const [reservation, setReservation] = React.useState({
     city: '',
@@ -37,6 +43,18 @@ function AddReservationForm() {
 
     // navigate('/myReservations');
   };
+  if (!allProducts) return <LoadingPage />;
+
+  if (!allProducts.length) {
+    return (
+      <div className="d-flex-column mt-5">
+        <h1 className="text-center">Add New Reservation</h1>
+        <div className="container w-50 mt-3">
+          <h3 className="text-center">No products available</h3>
+        </div>
+      </div>
+    );
+  }
 
   const productsOptions = allProducts.map((product) => (
     <option key={product.id} value={product.id}>

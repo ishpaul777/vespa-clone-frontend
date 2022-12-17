@@ -2,7 +2,7 @@ const ADD_PRODUCT = 'ADD_PRODUCT';
 const REMOVE_PRODUCT = 'REMOVE_PRODUCT';
 const GET_PRODUCTS = 'GET_PRODUCTS';
 
-const initialState = [];
+const initialState = null;
 
 export default function productsReducer(state = initialState, action) {
   switch (action.type) {
@@ -82,7 +82,11 @@ export function getProducts() {
       },
     });
     const data = await response.json();
-    dispatch({ type: GET_PRODUCTS, payload: data });
+    if (data) {
+      dispatch({ type: GET_PRODUCTS, payload: data });
+    } else {
+      dispatch({ type: GET_PRODUCTS, payload: [] });
+    }
     dispatch({
       type: 'SET_LOADING',
     });

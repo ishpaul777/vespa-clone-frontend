@@ -1,10 +1,7 @@
 /* eslint-disable no-nested-ternary */
-import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { logout } from './redux/users/user_reducer';
-import { getAllReservedProducts } from './redux/reservations/reservations_reducer';
-import { getProducts } from './redux/products/products_reducer';
+import { useSelector } from 'react-redux';
+// import { logout } from './redux/users/user_reducer';
 import AllProducts from './pages/AllProducts';
 import AddProduct from './pages/AddProduct';
 import MyReservations from './pages/MyReservations';
@@ -19,34 +16,27 @@ import Page404 from './pages/Page404';
 function App() {
   const user = useSelector((state) => state.user);
   const loading = useSelector((state) => state.loading);
-  const dispatch = useDispatch();
-  const productdata = useSelector((state) => state.products);
-  const reservationData = useSelector((state) => state.reservations);
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getProducts());
-    dispatch(getAllReservedProducts());
-  }, [dispatch]);
-
-  function checkAuth() {
-    const { token } = JSON.parse(localStorage.getItem('user'));
-    const response = fetch('http://localhost:3000/current_user', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: token,
-      },
-    });
-    return response.ok;
-  }
+  // function checkAuth() {
+  //   const { token } = JSON.parse(localStorage.getItem('user'));
+  //   const response = fetch('http://localhost:3000/current_user', {
+  //     method: 'GET',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       Authorization: token,
+  //     },
+  //   });
+  //   return response.ok;
+  // }
 
   // when the window is reload, check if the auth token is still valid
   // if not, logout the user
-  if (user) {
-    if (checkAuth() === false) {
-      dispatch(logout());
-    }
-  }
+  // if (user) {
+  //   if (checkAuth() === false) {
+  //     dispatch(logout());
+  //   }
+  // }
 
   return (
     <div className="App">
@@ -57,17 +47,17 @@ function App() {
         ) : user ? (
           <Sidebar>
             <Routes>
-              <Route path="/" element={<AllProducts data={productdata} />} />
+              <Route path="/" element={<AllProducts />} />
               <Route
                 path="/products"
-                element={<AllProducts data={productdata} />}
+                element={<AllProducts />}
               />
               <Route path="/products/:id" element={<ProductDetails />} />
               <Route
                 path="/reserve"
                 element={<Reserve />}
               />
-              <Route path="/myReservations" element={<MyReservations data={reservationData} />} />
+              <Route path="/myReservations" element={<MyReservations />} />
               {user.role === 'admin' && (
                 <Route path="/addProduct" element={<AddProduct />} />
               )}

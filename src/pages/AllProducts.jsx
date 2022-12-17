@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { getProducts } from '../redux/products/products_reducer';
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -8,9 +9,18 @@ import 'slick-carousel/slick/slick-theme.css';
 import '../styles/carousel.css';
 import ProductCard from '../components/ProductCard';
 
-const AllProducts = ({ data }) => {
+const AllProducts = () => {
 
   const user = useSelector((state) => state.user);
+
+  const data = useSelector((state) => state.products);
+
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    if (!data)
+      dispatch(getProducts());
+  }, []);
 
   const settings = {
     arrows: true,
