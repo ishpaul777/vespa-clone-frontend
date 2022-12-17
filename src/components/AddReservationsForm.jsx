@@ -1,9 +1,9 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable */
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { Form } from 'react-bootstrap';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { reserveTestDrive } from '../redux/reservations/reservations_reducer';
 import LoadingPage from '../pages/LoadingPage';
 import { getProducts } from '../redux/products/products_reducer';
@@ -12,7 +12,7 @@ function AddReservationForm() {
   const allProducts = useSelector((state) => state.products);
   const initialproductId = allProducts && allProducts.length > 0 ? allProducts[0].id : '';
   const [productId, setProductId] = useState(initialproductId);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   React.useEffect(() => {
@@ -42,7 +42,7 @@ function AddReservationForm() {
       reserved_date: '',
     });
 
-    // navigate('/myReservations');
+     navigate('/myReservations');
   };
   if (!allProducts) return <LoadingPage />;
 
