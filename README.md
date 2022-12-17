@@ -21,6 +21,9 @@
   <ul>
     <li><a href="https://reactjs.org/">React</a></li>
   </ul>
+   <ul>
+    <li><a href="https://redux.js.org/">Redux</a></li>
+  </ul>
 </details>
 
 ### Key Features <a name="key-features"></a>
