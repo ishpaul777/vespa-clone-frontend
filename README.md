@@ -91,6 +91,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 - I would like to thank to [Microverse](https://www.microverse.org/)
+- Original design by (([Murat Korkmaz](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign)))) on Behance
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
