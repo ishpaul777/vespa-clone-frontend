@@ -1,12 +1,10 @@
 import React from 'react';
-import AddProductForm from "../components/AddProductForm";
+import AddProductForm from '../components/AddProductForm';
 
-const AddMotorcycle = () => {
-    return (
-        <div>
-            <AddProductForm />
-        </div>
-    );
-};
+const AddMotorcycle = () => (
+  <div>
+    <AddProductForm />
+  </div>
+);
 
 export default AddMotorcycle;
