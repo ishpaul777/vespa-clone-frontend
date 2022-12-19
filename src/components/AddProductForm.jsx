@@ -134,12 +134,3 @@ function AddProductForm() {
 }
 
 export default AddProductForm;
-
-// product attributes
-// model name
-// color
-// price
-// image
-// description
-
-// HOw to change CRLF to LF in windows FOR EVERY FILE IN A FOLDER

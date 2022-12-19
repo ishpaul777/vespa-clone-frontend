@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { login } from '../redux/users/user_reducer'

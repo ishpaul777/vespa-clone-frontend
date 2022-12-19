@@ -1,7 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-// import { logout } from './redux/users/user_reducer';
 import AllProducts from './pages/AllProducts';
 import AddProduct from './pages/AddProduct';
 import MyReservations from './pages/MyReservations';
@@ -16,27 +15,6 @@ import Page404 from './pages/Page404';
 function App() {
   const user = useSelector((state) => state.user);
   const loading = useSelector((state) => state.loading);
-  // const dispatch = useDispatch();
-
-  // function checkAuth() {
-  //   const { token } = JSON.parse(localStorage.getItem('user'));
-  //   const response = fetch('http://localhost:3000/current_user', {
-  //     method: 'GET',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       Authorization: token,
-  //     },
-  //   });
-  //   return response.ok;
-  // }
-
-  // when the window is reload, check if the auth token is still valid
-  // if not, logout the user
-  // if (user) {
-  //   if (checkAuth() === false) {
-  //     dispatch(logout());
-  //   }
-  // }
 
   return (
     <div className="App">
