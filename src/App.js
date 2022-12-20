@@ -12,7 +12,7 @@ import SignupForm from './components/SignupForm';
 import LoadingPage from './pages/LoadingPage';
 import Page404 from './pages/Page404';
 
-function App() {
+const App = () => {
   const user = useSelector((state) => state.user);
   const loading = useSelector((state) => state.loading);
 
@@ -52,6 +52,6 @@ function App() {
       </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
