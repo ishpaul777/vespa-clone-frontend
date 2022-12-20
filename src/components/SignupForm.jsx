@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { login } from '../redux/users/user_reducer';
 
-function SignupForm() {
+const SignupForm = () => {
   const [formData, setFormData] = React.useState({
     name: '',
     email: '',

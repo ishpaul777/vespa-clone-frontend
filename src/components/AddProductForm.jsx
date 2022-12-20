@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addProduct } from '../redux/products/products_reducer';
 
-function AddProductForm() {
+const AddProductForm = () => {
   const dispatch = useDispatch();
 
   const [product, setProduct] = React.useState({
@@ -131,6 +131,6 @@ function AddProductForm() {
       </form>
     </div>
   );
-}
+};
 
 export default AddProductForm;

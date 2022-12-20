@@ -5,7 +5,7 @@ import { login } from '../redux/users/user_reducer'
 import { Link } from 'react-router-dom'
 
 
-function SigninForm() {
+const SigninForm = () => {
 	const [formData, setFormData] = React.useState({
 		email: '',
 		password: '',
@@ -74,6 +74,6 @@ function SigninForm() {
 			</form>
 		</div>
 	)
-}
+};
 
 export default SigninForm

@@ -92,7 +92,7 @@ function ProductDetails() {
           </tbody>
         </table>
         <Link
-          to={`/reservation/${product.id}`}
+          to="/reserve"
           className="btn btn-primary btn-lg"
         >
           Book Test Ride

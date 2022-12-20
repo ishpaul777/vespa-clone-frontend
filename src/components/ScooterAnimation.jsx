@@ -1,8 +1,8 @@
+/* eslint-disable */
 import React from 'react';
 import '../assets/scooter.css';
 
-function ScooterAnimation() {
-  return (
+const ScooterAnimation = () => {
     <div className="aniamtion-container">
       <div id="scooter">
         <span className="wheels1" />
@@ -21,7 +21,6 @@ function ScooterAnimation() {
         </div>
       </div>
     </div>
-  );
-}
+};
 
 export default ScooterAnimation;

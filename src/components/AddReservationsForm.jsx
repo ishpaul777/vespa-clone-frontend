@@ -8,7 +8,7 @@ import { reserveTestDrive } from '../redux/reservations/reservations_reducer';
 import LoadingPage from '../pages/LoadingPage';
 import { getProducts } from '../redux/products/products_reducer';
 
-function AddReservationForm() {
+const AddReservationForm = () => {
   const allProducts = useSelector((state) => state.products);
   const initialproductId = allProducts && allProducts.length > 0 ? allProducts[0].id : '';
   const [productId, setProductId] = useState(initialproductId);

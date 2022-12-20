@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from "react";
 
-function Vespalogo() {
+const Vespalogo = () => {
 	return (
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 242.166 88.68" width={150} className="logo">
 			<path

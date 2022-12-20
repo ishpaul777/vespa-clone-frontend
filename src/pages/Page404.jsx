@@ -1,8 +1,9 @@
+/* eslint-disable */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ScooterAnimation from '../components/ScooterAnimation';
 
-function Page404() {
+const Page404 = () =>  {
   return (
     <>
       <div className="page404 w-100 d-flex flex-column align-items-center">

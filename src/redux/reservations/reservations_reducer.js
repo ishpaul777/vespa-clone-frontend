@@ -67,7 +67,7 @@ export const cancelTestDrive = (id) => async (dispatch) => {
     });
 };
 
-export function getAllReservedProducts() {
+export const getAllReservedProducts = () => {
   return async (dispatch) => {
     const response = await fetch("http://localhost:3000/reservations", {
       headers: {
