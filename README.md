@@ -74,6 +74,12 @@ git clone https://github.com/ishpaul777/vespa-clone-frontend
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+## Kanban board
+- [Kanban board link](https://github.com/users/ishpaul777/projects/6/views/1)
+- [Screenshot of the initial state of your Kanban board link](https://github.com/ishpaul777/vespa-clone-frontend/issues/16) 
+- Final number of team members - 2
+
+
 ## 👥 Authors <a name="authors"></a>
 
 👤 **Custodio Serafim**
